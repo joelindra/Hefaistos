@@ -1,6 +1,6 @@
 # Hefaistos Fuzzer v1.0.0
 
-<img width="200" height="300" alt="image" src="https://github.com/user-attachments/assets/62d3636d-e70e-447f-944c-85f556526e4d" />
+<img width="427" height="640" alt="image" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
 Hefaistos Fuzzer is a powerful and flexible Burp Suite extension designed for advanced web application fuzzing. It enables security researchers and penetration testers to perform comprehensive fuzzing tests for vulnerabilities such as SQL Injection, XSS, Path Traversal, Open Redirects, and more. The extension integrates seamlessly with Burp Suite, offering an intuitive UI for configuring and executing fuzzing tasks, analyzing results, and interacting with other Burp Suite tools.
 
