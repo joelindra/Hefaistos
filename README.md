@@ -29,7 +29,7 @@ Hefaistos Fuzzer is a powerful and flexible Burp Suite extension designed for ad
    - Burp Suite API (included with Burp Suite).
 
 2. **Steps**:
-   - Download the `HefaistosFuzzer.jar` file from the [Releases](https://github.com/Anonre/Hefaistos-Fuzzer/releases) page.
+   - Download the `HefaistosFuzzer.jar` file from the [Releases](https://github.com/joelindra/HefaistosFuzzer/releases) page.
    - In Burp Suite, go to the **Extender** tab.
    - Click **Add**, select **Java** as the extension type, and browse to the `HefaistosFuzzer.jar` file.
    - Load the extension. You should see the "Hefaistos Fuzzer" tab appear in Burp Suite.
