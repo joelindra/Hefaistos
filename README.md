@@ -1,113 +1,134 @@
-# Hefaistos Fuzzer v1.0.0
+# Hefaistos v2.0.0
+
+[![GitHub Release](https://img.shields.io/github/v/release/joelindra/hefaistos?style=flat-square)](https://github.com/joelindra/hefaistos/releases)
+[![GitHub License](https://img.shields.io/badge/License-Hades-blue?style=flat-square)](https://github.com/joelindra/hefaistos/blob/main/LICENSE)
+[![Burp Suite Extension](https://img.shields.io/badge/Burp%20Suite-Extension-orange?style=flat-square)](https://portswigger.net/burp)
+[![Java](https://img.shields.io/badge/Java-11+-blue?style=flat-square)](https://www.oracle.com/java/)
 
 <img width="427" height="640" alt="image" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
-Hefaistos Fuzzer is a powerful and flexible Burp Suite extension designed for advanced web application fuzzing. It enables security researchers and penetration testers to perform comprehensive fuzzing tests for vulnerabilities such as SQL Injection, XSS, Path Traversal, Open Redirects, and more. The extension integrates seamlessly with Burp Suite, offering an intuitive UI for configuring and executing fuzzing tasks, analyzing results, and interacting with other Burp Suite tools.
+Hefaistos is a powerful Burp Suite extension designed for penetration testers and security researchers. It integrates two specialized modules—**Forge** for advanced HTTP fuzzing and **Hammer** for comprehensive JSON Web Token (JWT) analysis and attacks—into a single, streamlined interface. Built to enhance your security testing workflow, Hefaistos provides automated vulnerability detection, payload crafting, and exploit simulation within Burp Suite's environment.
 
-## Features
+## Table of Contents
+- [Key Features](#key-features)
+  - [Forge: Multi-Threaded Fuzzing Module](#forge-multi-threaded-fuzzing-module)
+  - [Hammer: JWT Analysis & Attack Module](#hammer-jwt-analysis--attack-module)
+  - [General Features](#general-features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Forge Usage](#forge-usage)
+  - [Hammer Usage](#hammer-usage)
+- [Screenshots](#screenshots)
+- [License](#license)
+- [Author](#author)
+- [Support](#support)
 
-- **Multiple Fuzzing Categories**: Supports various vulnerability categories, including:
-  - Injection (SQL Injection, XSS)
-  - File/Path (Path Traversal, File Inclusion)
-  - Redirects (Open Redirect, Unwanted HTTP Method)
-  - Authentication (Username Enumeration, CRLF Injection, Broken Authentication)
-  - Custom (Custom Payloads, Host Header Injection)
-- **Customizable Payloads**: Load custom wordlists or use predefined payloads for each category.
-- **Flexible Configuration**: Configure threads, delays, and specific markers for each fuzzing category.
-- **Burp Collaborator Integration**: Supports out-of-band testing for Host Header Injection.
-- **Interactive Results Table**: Filter results by category, view detailed request/response data, and send results to Burp Suite's Repeater, Intruder, or Comparer.
-- **Auto-Detect Parameters**: Automatically identifies and marks parameters in HTTP requests for fuzzing.
-- **Persistent Settings**: Save and load fuzzing configurations for consistent testing.
-- **Export Results**: Export fuzzing results to CSV for further analysis.
-- **Progress and Statistics**: Real-time progress tracking and detailed statistics (e.g., status code distribution).
+## Key Features
+
+### Forge: Multi-Threaded Fuzzing Module
+- **Automated Parameter Detection**: Automatically detects fuzzing markers in HTTP requests (default: `FUZZ`).
+- **Category-Based Fuzzing**: Supports multiple vulnerability categories with pre-built or custom payloads:
+  - **Injection**: SQL Injection, XSS.
+  - **File/Path**: Path Traversal, File Inclusion.
+  - **Redirects**: Open Redirect, Unwanted HTTP Methods.
+  - **Authentication**: Username Enumeration, CRLF Injection, Broken Authentication.
+  - **Custom**: Custom Payloads, Host Header Injection (Burp Professional only).
+- **Configurable Scans**: Customize threads, delays, and specific markers per category.
+- **Results Analysis**: Tabular results with filtering by category, status codes, response lengths, timings, and detected issues.
+- **Progress Tracking**: Real-time progress bar and statistics (e.g., 2xx, 3xx, 4xx, 5xx responses).
+- **Export & Clear**: Export results to CSV or clear for new scans.
+- **Settings Persistence**: Auto-saves configurations every 30 seconds or manually via the context menu.
+
+### Hammer: JWT Analysis & Attack Module
+- **Decoder**: Decodes JWT headers and payloads; verifies signatures with provided secrets or keys.
+- **Security Analysis**: Identifies vulnerabilities such as weak algorithms, missing expiration, or invalid signatures.
+- **Fuzzing Checklist**: Automated tests for common JWT vulnerabilities (e.g., 'none' algorithm, empty signatures, 'kid' injections).
+- **Algorithm Confusion Attack**: Converts RS256 to HS256 using public keys for potential exploitation.
+- **Brute-Force Attack**: Cracks weak HSxxx secrets using in-memory or file-based wordlists.
+- **Builder**: Generates new JWTs with HS256/384/512 algorithms, custom payloads, and secrets.
+- **Progress & Output**: Displays real-time progress for attacks with detailed, formatted results.
+
+### General Features
+- **Context Menu Integration**: Send HTTP requests to Forge or Hammer directly from Burp Suite's context menu.
+- **Modern UI**: Dark-themed interface matching Burp Suite, with glitch animations and hover effects for enhanced user experience.
+- **Auto-Save Settings**: Automatically saves configurations to persist settings across sessions.
+- **Error Logging**: Dual logging to Burp's Errors tab and system console for debugging.
+- **Compatibility**: Works with Burp Suite Professional and Community editions (some features exclusive to Professional).
 
 ## Installation
 
-1. **Prerequisites**:
-   - Burp Suite Professional or Community Edition.
-   - Java Development Kit (JDK) 8 or higher.
-   - Burp Suite API (included with Burp Suite).
+1. **Download the JAR File**:
+   - Grab the latest release from the [GitHub Releases page](https://github.com/joelindra/hefaistos/releases).
 
-2. **Steps**:
-   - Download the `HefaistosFuzzer.jar` file from the [Releases](https://github.com/joelindra/HefaistosFuzzer/releases) page.
-   - In Burp Suite, go to the **Extender** tab.
-   - Click **Add**, select **Java** as the extension type, and browse to the `HefaistosFuzzer.jar` file.
-   - Load the extension. You should see the "Hefaistos Fuzzer" tab appear in Burp Suite.
+2. **Load in Burp Suite**:
+   - Open Burp Suite.
+   - Navigate to the **Extensions** tab.
+   - Click **Add**, select **Java** as the extension type, and browse to the downloaded `Hefaistos.jar` file.
+   - Ensure the extension loads successfully (check the **Output** tab for "Hefaistos loaded successfully!").
 
 3. **Verify Installation**:
-   - Check the **Output** tab in Burp Suite’s Extender for the message: `Hefaistos Fuzzer loaded successfully!`.
-   - The extension tab should be visible and functional.
+   - A new tab named **Hefaistos** should appear in Burp Suite with **Forge**, **Hammer**, and **About** sub-tabs.
 
 ## Usage
 
-### 1. Accessing the Extension
-- Navigate to the **Hefaistos Fuzzer** tab in Burp Suite.
-- Alternatively, right-click on an HTTP request in any Burp Suite tool (e.g., Proxy, Repeater) and select **Send to Hefaistos Fuzzer** to populate the request area.
+### Forge Usage
+1. **Send a Request**:
+   - Right-click an HTTP request in Burp Suite (e.g., in Proxy or Repeater).
+   - Select **Send to Hefaistos > Send to Forge**.
+   - The request will populate in the **HTTP Request** panel.
 
-### 2. Configuring Fuzzing
-- **HTTP Request**: Paste or send an HTTP request to the request area. Use the **Auto-Detect Parameters** button to automatically mark injectable parameters with the global marker (`FUZZ` by default).
-- **Global Marker**: Set a global marker (e.g., `FUZZ`) to define injection points in the request.
-- **Fuzzing Categories**:
-  - Enable/disable categories (e.g., SQL Injection, XSS) via checkboxes.
-  - Configure threads and delay for each category.
-  - For non-automated categories, specify payloads in the text area or load a wordlist file.
-  - Optionally set specific markers for each category to override the global marker.
-- **Automated Categories**:
-  - **Broken Authentication**: Removes Authorization and Cookie headers to test for authentication bypass.
-  - **Unwanted HTTP Method**: Cycles through HTTP methods (e.g., GET, POST, DELETE).
-  - **Host Header Injection**: Injects Burp Collaborator payloads to detect out-of-band interactions.
+2. **Configure Fuzzing**:
+   - Use the **Global Marker** field (default: `FUZZ`) or click **Auto-Detect Parameters** to identify injection points.
+   - Navigate the fuzzing categories (Injection, File/Path, etc.) and enable/disable tests, adjust threads, delays, or load custom wordlists.
 
-### 3. Starting a Scan
-- Click **Start Fuzzing** to begin the scan.
-- Monitor progress via the progress bar and status label.
-- Stop the scan at any time using the **Stop** button.
+3. **Run the Attack**:
+   - Click **Start Attack** to begin fuzzing.
+   - Monitor results in the **Fuzzing Results** table, filter by category, and view modified requests/responses.
+   - Use **Export** to save results or **Clear** to reset.
 
-### 4. Analyzing Results
-- **Results Table**: Displays fuzzing results with columns for ID, Category, Payload, Status, Length, Time, and Issues.
-- **Filters**: Use the category filter dropdown to view results for specific categories.
-- **Statistics**: View status code distribution (e.g., 2xx, 3xx, 4xx, 5xx) in the statistics panel.
-- **Request/Response Viewers**: Select a result to view the modified request, original response, and modified response.
-- **Context Menu Actions**:
-  - Right-click a result to send it to Repeater, Intruder, or Comparer.
-  - Copy modified request/response data to the clipboard.
-- **Export Results**: Save results to a CSV file using the **Export Results** button.
+4. **Save Settings**:
+   - Click **Save** in the control panel or use the context menu (**Send to Hefaistos > Save Settings**) to persist configurations.
 
-### 5. Saving Settings
-- Click **Save Settings** to persist configurations (global marker, payloads, category settings).
-- Settings are automatically saved when the extension is unloaded.
+### Hammer Usage
+1. **Send a JWT**:
+   - Right-click an HTTP request containing a JWT (e.g., in the Authorization header or body).
+   - Select **Send to Hefaistos > Send to Hammer** to populate the **Encoded JWT** field in the Decoder tab.
 
-### 6. Example Workflow
-1. Send an HTTP request to the fuzzer from Burp Suite’s Proxy.
-2. Use **Auto-Detect Parameters** to mark a parameter (e.g., `id=1` becomes `id=FUZZ`) or Manually add your mark
-3. Enable desired categories (e.g., SQL Injection, XSS) and load custom payloads if needed.
-4. Start the scan and monitor results.
-5. Analyze results, send interesting requests to Repeater for further testing, and export results for reporting.
+2. **Decode & Analyze**:
+   - In the **Decoder** tab, view decoded header and payload, and enter a secret/key to verify the signature.
+   - Check the **Security Analysis** panel for identified vulnerabilities.
+
+3. **Run Attacks**:
+   - In the **Security Tests** tab:
+     - Use **JWT Fuzzer** for automated vulnerability checks.
+     - Perform an **Algorithm Confusion Attack** by providing a public key.
+     - Run a **Weak Secret Brute Force** with a wordlist (in-memory or file-based).
+   - Monitor progress and results in the **Attack Output** panel.
+
+4. **Build a JWT**:
+   - In the **Builder** tab, select an HSxxx algorithm, enter a payload (JSON), and provide a secret.
+   - Click **Generate Token** to create a new JWT.
 
 ## Screenshots
 
-<img width="1914" height="929" alt="image" src="https://github.com/user-attachments/assets/59af0bc1-c882-4519-b639-9a1b8229b366" />
-
-## Dependencies
-
-- **Burp Suite API**: Provided by Burp Suite (included in the Burp Suite installation).
-- **GSON**: Included in the Burp Suite runtime for JSON serialization/deserialization.
-- **Java Swing**: Used for the UI, included in the Java Runtime Environment (JRE).
-
-## Issues
-
-Report bugs or suggest features by creating an issue in the [GitHub Issues](https://github.com/joelindra/HefaistosFuzzer/issues) section. Provide detailed information, including:
-- Burp Suite version
-- Java version
-- Steps to reproduce the issue
-- Screenshots or logs (if applicable)
+<img width="1917" height="946" alt="image" src="https://github.com/user-attachments/assets/bfc3e76f-3808-4e55-9bd4-ff66e949c04a" />
+<img width="1915" height="952" alt="image" src="https://github.com/user-attachments/assets/70494160-fe69-4685-86b9-19ebc6605af3" />
+<img width="1912" height="918" alt="image" src="https://github.com/user-attachments/assets/6fc26905-eed8-4c3c-9f77-1d004c2de023" />
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+Hefaistos is licensed under the **Hades License**. See the [LICENSE](https://github.com/joelindra/hefaistos/blob/main/LICENSE) file for details.
 
-## Credits
+## Author
 
-- **Author**: Joel Indra (Anonre)
-- **Inspiration**: Built for the security research community to enhance web application testing.
+- **Joel Indra**
+  - GitHub: [joelindra](https://github.com/joelindra)
+  - Website: [docs.joelindra.id](https://docs.joelindra.id)
 
-*Fear just an illusion. Hack responsibly!*
+## Support
+
+For issues, feature requests, or questions:
+- Open an issue on the [GitHub Issues page](https://github.com/joelindra/hefaistos/issues).
+- Contact the author via the [website](https://docs.joelindra.id).
+
+Happy testing, and stay secure!
