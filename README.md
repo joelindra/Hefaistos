@@ -27,11 +27,6 @@ Hefaistos is a robust, multi-tool Burp Suite extension for Hackers who need more
   - [Usage & About Tabs](#usage--about-tabs)
   - [Advanced Tips](#advanced-tips)
 - [Screenshots](#screenshots)
-- [Building from Source](#building-from-source)
-- [Changelog](#changelog)
-- [Known Issues](#known-issues)
-- [Contributing](#contributing)
-- [License](#license)
 - [Credits & Acknowledgments](#credits--acknowledgments)
 
 ## Key Features
