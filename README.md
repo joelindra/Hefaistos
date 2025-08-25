@@ -1,9 +1,7 @@
 # Hefaistos v2.2.0
 
-[![GitHub Release](https://img.shields.io/github/v/release/joelindra/Hefaistos)](https://github.com/joelindra/Hefaistos/releases)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-Hades-Red.svg)](LICENSE)
 [![Burp Suite Compatible](https://img.shields.io/badge/Burp%20Suite-Compatible-green)](https://portswigger.net/burp)
-[![Downloads](https://img.shields.io/github/downloads/joelindra/Hefaistos/total)](https://github.com/joelindra/Hefaistos/releases)
 
 Hefaistos is a robust, multi-tool Burp Suite extension tailored for penetration testers, bug bounty hunters, and cybersecurity experts. Inspired by the Greek god of forging, it equips users with specialized modules to analyze, exploit, and test web applications efficiently. Featuring a cyberpunk-themed interface with glitch effects and neon accents, Hefaistos streamlines workflows for JWT manipulation, fuzzing, webhook listening, and request logging.
 
