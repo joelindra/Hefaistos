@@ -8,7 +8,6 @@ Hefaistos is a robust, multi-tool Burp Suite extension for Hackers who need more
 <img width="427" height="640" alt="image" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
 **Codename:** HEFAISTOS  
-**Version:** 2.2.0 (Released: August 26, 2025)  
 **Creator:** Joel Indra  
 **Type:** Burp Suite Exploit eXtension
 **Mission:** More time for coffee!
