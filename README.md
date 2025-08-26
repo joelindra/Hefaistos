@@ -1,4 +1,4 @@
-# Hefaistos v2.2.0
+# Hefaistos v2.2.1
 
 [![License](https://img.shields.io/badge/license-Hades-Red.svg)](LICENSE)
 [![Burp Suite Compatible](https://img.shields.io/badge/Burp%20Suite-Compatible-green)](https://portswigger.net/burp)
