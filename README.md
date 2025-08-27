@@ -61,15 +61,18 @@ H3F41ST0S includes four main tools (referred to as "WEAPONS" in the extension):
 - Collect interesting requests into a side panel for reporting.
 
 ## Installation
-1. **Download the JAR:**
-   - Clone or download the repository from [GitHub](https://github.com/joelindra).
-   - Build the JAR file using your preferred Java build tool (e.g., Maven or Gradle), or download a pre-built release if available.
 
-2. **Load into Burp Suite:**
+1. **Download the JAR File**:
+   - Grab the latest release from the [GitHub Releases page](https://github.com/joelindra/hefaistos/releases).
+
+2. **Load in Burp Suite**:
    - Open Burp Suite.
-   - Go to **Extender > Extensions > Add**.
-   - Select the JAR file and load it.
-   - The extension will appear as a new tab: **H3F41ST0S**.
+   - Navigate to the **Extensions** tab.
+   - Click **Add**, select **Java** as the extension type, and browse to the downloaded `Hefaistos.jar` file.
+   - Ensure the extension loads successfully (check the **Output** tab for "Hefaistos loaded successfully!").
+
+3. **Verify Installation**:
+   - A new tab named **Hefaistos** should appear in Burp Suite with **Forge**, **Hammer**, and **About** sub-tabs.
 
 **Requirements:**
 - Java 8 or higher.
