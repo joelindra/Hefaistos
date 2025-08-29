@@ -1,64 +1,85 @@
-# HEFAISTOS - v2.3.0
+# Hefaistos
 
-[![GitHub](https://img.shields.io/badge/GitHub-joelindra-blue?style=flat&logo=github)](https://github.com/joelindra)
-[![Website](https://img.shields.io/badge/Website-docs.joelindra.id-green?style=flat&logo=google-chrome)](https://docs.joelindra.id)
-[![License](https://img.shields.io/badge/License-Hades-red?style=flat)](LICENSE)
+[![GitHub Release](https://img.shields.io/github/v/release/joelindra/hefaistos?style=flat-square)](https://github.com/joelindra/hefaistos/releases)
+[![GitHub License](https://img.shields.io/badge/License-Hades-blue?style=flat-square)](https://github.com/joelindra/hefaistos/blob/main/LICENSE)
+[![Burp Suite Extension](https://img.shields.io/badge/Burp%20Suite-Extension-orange?style=flat-square)](https://portswigger.net/burp)
+[![Java](https://img.shields.io/badge/Java-11+-blue?style=flat-square)](https://www.oracle.com/java/)
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-  - [Forge - Fuzz Heker](#forge---fuzz-heker)
-  - [Hammer - JWT Heker](#hammer---jwt-heker)
-  - [Tripod - Hook Heker](#tripod---hook-heker)
-  - [Anvil - Request Heker](#anvil---request-heker)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [General Navigation](#general-navigation)
-  - [Forge - Fuzz Heker](#forge---fuzz-heker-1)
-  - [Hammer - JWT Heker](#hammer---jwt-heker-1)
-  - [Tripod - Hook Heker](#tripod---hook-heker-1)
-  - [Anvil - Request Heker](#anvil---request-heker-1)
-- [Credits](#credits)
-- [License](#license)
-
-## Overview
-H3F41ST0S is a powerful Burp Suite extension designed for advanced web security testing. It combines multiple tools into one suite, focusing on fuzzing, JWT exploitation, webhook listening, and request logging. Built with a cyberpunk aesthetic, it's perfect for penetration testers and security researchers who want to dominate web app vulnerabilities.
+Hefaistos is a powerful Burp Suite extension designed for penetration testers and security researchers. It integrates multiple specialized modules—**Forge** for advanced HTTP fuzzing, **Hammer** for comprehensive JSON Web Token (JWT) analysis and attacks, **Tripod** for webhook listening and port management, **Anvil** for request logging and analysis, and **Assistant** for AI-powered HTTP request analysis—into a single, streamlined interface. Built to enhance your security testing workflow, Hefaistos provides automated vulnerability detection, payload crafting, exploit simulation, and more within Burp Suite's environment.
 
 <img width="427" height="640" alt="image" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
-**Codename:** H3F41ST0S  
-**Creator:** Joel Indra xD  
-**Type:** Burp Suite Exploit Module  
-**Mission:** Dominate Web Security Testing  
-**Compatibility:** Burp Suite Pro/Community  
+## Table of Contents
+- [Key Features](#key-features)
+  - [Forge: Multi-Threaded Fuzzing Module](#forge-multi-threaded-fuzzing-module)
+  - [Hammer: JWT Analysis & Attack Module](#hammer-jwt-analysis--attack-module)
+  - [Tripod: Webhook Listener & Port Management](#tripod-webhook-listener--port-management)
+  - [Anvil: Request Logging & Analysis](#anvil-request-logging--analysis)
+  - [Assistant: AI-Powered Request Analysis](#assistant-ai-powered-request-analysis)
+  - [General Features](#general-features)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Forge Usage](#forge-usage)
+  - [Hammer Usage](#hammer-usage)
+  - [Tripod Usage](#tripod-usage)
+  - [Anvil Usage](#anvil-usage)
+  - [Assistant Usage](#assistant-usage)
+- [Screenshots](#screenshots)
+- [License](#license)
 
-## Features
-H3F41ST0S includes four main tools (referred to as "WEAPONS" in the extension):
+## Key Features
 
-### Forge - Fuzz Heker
-- A multi-threaded fuzzing tool for crafting malicious HTTP payloads.
-- Supports multiple requests and injection points simultaneously.
-- Attack modes: Sniper, Battering Ram, Pitchfork, Cluster Bomb.
-- Categories: SQL Injection, XSS, Path Traversal, LDAP Injection, Open Redirect, Unwanted HTTP Methods, Verbose Errors, CRLF Injection, Broken Authentication, Custom Payloads, Host Header Injection.
-- Features: Auto-detect parameters, positional markers, payload sets, parallel execution, results export to CSV.
+### Forge: Multi-Threaded Fuzzing Module
+- **Automated Parameter Detection**: Automatically detects fuzzing markers in HTTP requests (default: `FUZZ`).
+- **Category-Based Fuzzing**: Supports multiple vulnerability categories with pre-built or custom payloads:
+  - **Injection**: SQL Injection, XSS.
+  - **File/Path**: Path Traversal, File Inclusion.
+  - **Redirects**: Open Redirect, Unwanted HTTP Methods.
+  - **Authentication**: Username Enumeration, CRLF Injection, Broken Authentication.
+  - **Custom**: Custom Payloads, Host Header Injection (Burp Professional only).
+- **Configurable Scans**: Customize threads, delays, and specific markers per category.
+- **Results Analysis**: Tabular results with filtering by category, status codes, response lengths, timings, and detected issues.
+- **Progress Tracking**: Real-time progress bar and statistics (e.g., 2xx, 3xx, 4xx, 5xx responses).
+- **Export & Clear**: Export results to CSV or clear for new scans.
+- **Settings Persistence**: Auto-saves configurations every 30 seconds or manually via the context menu.
 
-### Hammer - JWT Heker
-- Comprehensive JWT analysis, attack, and crafting toolkit.
-- Decoder: Instant decoding, security analysis, signature verification.
-- Security Tests: JWT Fuzzer (none alg, kid/jku injection, algo confusion), Weak Secret Brute Force.
-- Builder: Craft custom JWTs with HSxxx algorithms, key length validation.
+### Hammer: JWT Analysis & Attack Module
+- **Decoder**: Decodes JWT headers and payloads; verifies signatures with provided secrets or keys.
+- **Security Analysis**: Identifies vulnerabilities such as weak algorithms, missing expiration, or invalid signatures.
+- **Fuzzing Checklist**: Automated tests for common JWT vulnerabilities (e.g., 'none' algorithm, empty signatures, 'kid' injections).
+- **Algorithm Confusion Attack**: Converts RS256 to HS256 using public keys for potential exploitation.
+- **Brute-Force Attack**: Cracks weak HSxxx secrets using in-memory or file-based wordlists.
+- **Builder**: Generates new JWTs with HS256/384/512 algorithms, custom payloads, and secrets.
+- **Progress & Output**: Displays real-time progress for attacks with detailed, formatted results.
 
-### Tripod - Hook Heker
-- Stealth HTTP listener and port management system.
-- Creates local endpoints for OOB testing (SSRF, Blind XSS, XXE).
-- Captures and dissects requests in real-time.
-- Port management: View and kill processes using TCP ports (with caution).
+### Tripod: Webhook Listener & Port Management
+- **Local HTTP Endpoint**: Creates a simple webhook listener on a specified port to capture out-of-band (OOB) requests for testing SSRF, Blind XSS, XXE, etc.
+- **Real-Time Request Logging**: Displays incoming requests in a sortable table with method, URL, timestamp, and full raw request details.
+- **IP Address Detection**: Automatically lists available IP addresses for crafting payload URLs.
+- **Port Management**: Scans and kills processes using specific TCP ports to resolve "port in use" issues (with caution).
+- **History Management**: Clear captured request history and stop/start the listener easily.
 
-### Anvil - Request Heker
-- Request logging and analysis tool.
-- Automatically captures requests from Burp tools.
-- Displays logs with sortable table, detailed viewers (Summary, Request, Response).
-- Collect interesting requests into a side panel for reporting.
+### Anvil: Request Logging & Analysis
+- **Automatic Request Capture**: Logs HTTP requests from various Burp tools (e.g., Proxy, Repeater) into a sortable table.
+- **Detailed Inspection**: View request summaries, raw requests/responses, and parsed parameters (URL and body) in a tabbed viewer.
+- **Collection Panel**: Add selected requests to a side panel for easy collection of interesting findings; includes copy and clear functions.
+- **Timestamped Entries**: Each log entry includes tool source, host, method, URL, and timestamp.
+- **Clear History**: Reset the log and collected items with a single button.
+
+### Assistant: AI-Powered Request Analysis
+- **AI Integration**: Send HTTP requests to AI providers (e.g., Gemini, ChatGPT, Claude) for automated security vulnerability analysis.
+- **Customizable Prompts**: Use pre-defined or custom templates to guide AI analysis; edit prompts directly in the interface.
+- **API Key Management**: Securely store and manage API keys for multiple AI providers in the settings tab.
+- **Response Viewer**: Displays AI-generated insights in a dedicated panel with real-time status updates.
+- **Template Management**: Add, edit, or remove prompt templates to tailor analysis to specific needs.
+
+### General Features
+- **Context Menu Integration**: Send HTTP requests to Forge, Hammer, Tripod, Anvil, or Assistant directly from Burp Suite's context menu.
+- **Modern UI**: Dark-themed interface matching Burp Suite, with glitch animations and hover effects for enhanced user experience.
+- **Auto-Save Settings**: Automatically saves configurations to persist settings across sessions.
+- **Error Logging**: Dual logging to Burp's Errors tab and system console for debugging.
+- **Compatibility**: Works with Burp Suite Professional and Community editions (some features exclusive to Professional).
+- **About & Usage Tabs**: Includes an "About" tab with tool info and a "Usage" tab with detailed instructions.
 
 ## Installation
 
@@ -72,107 +93,102 @@ H3F41ST0S includes four main tools (referred to as "WEAPONS" in the extension):
    - Ensure the extension loads successfully (check the **Output** tab for "Hefaistos loaded successfully!").
 
 3. **Verify Installation**:
-   - A new tab named **Hefaistos** should appear in Burp Suite with **Forge**, **Hammer**, and **About** sub-tabs.
-
-**Requirements:**
-- Java 8 or higher.
-- Burp Suite Professional or Community Edition.
+   - A new tab named **Hefaistos** should appear in Burp Suite with **Forge**, **Hammer**, **Tripod**, **Anvil**, **Assistant**, **Usage**, and **About** sub-tabs.
 
 ## Usage
-### General Navigation
-- The extension opens with an **About** tab showing system info and features.
-- Switch to the **Usage** tab for detailed instructions on each tool.
-- Each tool has its own sub-tab under the main extension tab.
 
-### Forge - Fuzz Heker
-Forge is a powerful and flexible web application fuzzer designed to handle multiple requests and multiple injection points simultaneously. It offers various attack modes to suit different testing scenarios.
+### Forge Usage
+1. **Send a Request**:
+   - Right-click an HTTP request in Burp Suite (e.g., in Proxy or Repeater).
+   - Select **Send to Hefaistos > Send to Forge**.
+   - The request will populate in the **HTTP Request** panel.
 
-**How It Works: A 5-Step Guide**
-1. **Load Your Targets:** In any Burp tool, right-click one or more requests and select the option to send them to Forge (e.g., 'Send to FuzzerVibes').
-2. **Define Injection Points:** Select a target request and place markers where payloads should be inserted.
-   - Primary Marker (§): Use this for simple, single-point fuzzing. The 'Auto-Detect Parameters' button can automatically place this marker.
-   - Positional Markers (§name§): Use distinct named markers for multi-point fuzzing (Pitchfork/Cluster Bomb).
-   - Use **Add** to wrap selected text with a marker, and **Clear** to remove only the marker characters, leaving the original text intact.
-3. **Configure Attack Modules:** Navigate the 'Swag' tabs. Enable any module (e.g., SQL Injection, XSS) with its checkbox. Edit payload lists directly or load them from a file.
-4. **Configure and Launch the Scan:** In 'Scan Control', select your Attack Mode, set the request rate (Req/min), and choose whether to run in parallel. Click 'Start' to begin.
-5. **Analyze the Results:** Results appear in real-time. Use filters to narrow down by target or attack category. Click any row to view the full request and response.
+2. **Configure Fuzzing**:
+   - Use the **Global Marker** field (default: `FUZZ`) or click **Auto-Detect Parameters** to identify injection points.
+   - Navigate the fuzzing categories (Injection, File/Path, etc.) and enable/disable tests, adjust threads, delays, or load custom wordlists.
 
-**Key Features & Attack Modes**
-- **Advanced Marker System:** Each payload-based module supports a specific 'Override Marker', allowing you to run different attacks on different injection points within the same request.
-- **Attack Modes Explained:**
-  - **Sniper:** Uses one payload list and iterates through each marker one by one.
-  - **Battering Ram:** Uses one payload list and injects the same payload into all markers at once.
-  - **Pitchfork:** Requires multiple positional markers and a corresponding number of payload sets. It applies payloads in parallel (e.g., user1/pass1, user2/pass2).
-  - **Cluster Bomb:** Tests every possible permutation of payloads from all sets. It's thorough but generates many requests.
-- **Powerful Results Analysis:** The results table is color-coded by status. A statistics panel provides a live summary of response codes. Context menus allow sending results to other Burp tools.
-- **Session Management:** You can **Save** your entire configuration (payloads, settings) and **Export** fuzzing results to a CSV file.
+3. **Run the Attack**:
+   - Click **Start Attack** to begin fuzzing.
+   - Monitor results in the **Fuzzing Results** table, filter by category, and view modified requests/responses.
+   - Use **Export** to save results or **Clear** to reset.
 
-### Hammer - JWT Heker
-Hammer is a comprehensive Burp Suite extension for analyzing, attacking, and crafting JSON Web Tokens (JWTs). It provides a user-friendly interface to streamline JWT security testing.
+4. **Save Settings**:
+   - Click **Save** in the control panel or use the context menu (**Send to Hefaistos > Save Settings**) to persist configurations.
 
-**Decoder Tab: Decode & Analyze**
-- This is your primary workspace for inspecting JWTs.
-- **Instant Decoding:** Paste a JWT to automatically decode the Header and Payload. The content is pretty-printed for easy reading.
-- **Automated Security Analysis:** The tool instantly analyzes the decoded header for critical vulnerabilities. It flags the insecure alg:none algorithm, identifies the algorithm family (symmetric HSxxx vs. asymmetric RSxxx/ESxxx), and suggests relevant attacks.
-- **Signature Verification:** Validate a token's integrity by providing the correct key and clicking 'Verify Signature'.
-  - For symmetric algorithms (e.g., HS256), use the shared secret.
-  - For asymmetric algorithms (e.g., RS256), paste the public key in PEM format.
-  - The result will be clearly marked as VALID or INVALID.
+### Hammer Usage
+1. **Send a JWT**:
+   - Right-click an HTTP request containing a JWT (e.g., in the Authorization header or body).
+   - Select **Send to Hefaistos > Send to Hammer** to populate the **Encoded JWT** field in the Decoder tab.
 
-**Security Tests Tab: Find Vulnerabilities**
-- This tab contains a suite of automated attacks to test for common JWT implementation flaws.
-- **JWT Fuzzer:** Generates a list of malicious JWTs based on a checklist of common misconfigurations, including:
-  - Algorithm 'none' Attack (including case variations like 'NONE')
-  - Signature Stripping (empty signature)
-  - 'kid' Path Traversal & SQL Injection Payloads
-  - 'jku' & 'jwk' Header Injection and Spoofing
-- **Algorithm Confusion (RS256 → HS256):** For tokens signed with an asymmetric algorithm, this attack attempts to forge a new token by signing it with HS256, using the original public key as the HMAC secret.
-- **Weak Secret Brute Force:** For tokens signed with symmetric HMAC algorithms (HS256, HS384, HS512), this attempts to guess the secret key. You can paste a small wordlist directly or load a large wordlist from a file.
+2. **Decode & Analyze**:
+   - In the **Decoder** tab, view decoded header and payload, and enter a secret/key to verify the signature.
+   - Check the **Security Analysis** panel for identified vulnerabilities.
 
-**Builder Tab: Craft Custom Tokens**
-- The Builder allows you to create your own JWTs from scratch for testing.
-- **Full Control:** Specify the signing algorithm, edit the JSON payload, and provide a secret key.
-- **Built-in Security Check:** For HSxxx algorithms, the builder validates your secret key's length. It will issue a warning if the key is not strong enough according to RFC 7518, preventing the creation of weak tokens.
+3. **Run Attacks**:
+   - In the **Security Tests** tab:
+     - Use **JWT Fuzzer** for automated vulnerability checks.
+     - Perform an **Algorithm Confusion Attack** by providing a public key.
+     - Run a **Weak Secret Brute Force** with a wordlist (in-memory or file-based).
+   - Monitor progress and results in the **Attack Output** panel.
 
-### Tripod - Hook Heker
-Tripod is a versatile webhook listener and port management utility. Its primary purpose is to create a simple, local HTTP endpoint to receive and inspect out-of-band (OOB) requests, essential for testing SSRF, Blind XSS, XXE, and other external interaction-based flaws.
+4. **Build a JWT**:
+   - In the **Builder** tab, select an HSxxx algorithm, enter a payload (JSON), and provide a secret.
+   - Click **Generate Token** to create a new JWT.
 
-**How to Use the Webhook Listener**
-1. **Start the Listener:** Enter a port number (e.g., 8080) and click 'Start Listener'. It binds to 0.0.0.0, making it accessible on all network interfaces.
-2. **Get Your Endpoint URL:** The status bar will display all available IP addresses for your machine (e.g., 192.168.1.10). Use the appropriate IP to craft your payload URL.
-3. **Trigger an Interaction:** Use this URL as the payload in the application you are testing.
-4. **View and Inspect Requests:** Incoming HTTP requests appear in real-time in the 'Request History' table. Click any entry to see the full, raw request.
+### Tripod Usage
+1. **Start the Listener**:
+   - Enter a port number (e.g., 8080) and click **Start Listener**. It binds to all interfaces.
+   - The status bar displays available IP addresses for crafting payload URLs.
 
-**Port & Process Management**
-- **Stop Listener:** Shuts down the active listener and releases the port.
-- **Clear History:** Removes all captured requests from the history table.
-- **Kill Used Ports:** This unique feature helps resolve 'port in use' errors.
-  - It opens a dialog showing all processes currently listening on TCP ports on your system.
-  - The list includes the Port, PID, and Process Name.
-  - You can select one or more processes via checkboxes and terminate them directly from the dialog.
-  - **Warning:** Use with extreme caution. Terminating the wrong process can disrupt applications or destabilize your OS. This may require administrator/root privileges.
+2. **Capture Requests**:
+   - Use the webhook URL in your payloads to trigger OOB interactions.
+   - Incoming requests appear in the **Request History** table; select entries to view raw details.
 
-### Anvil - Request Heker
-Anvil is a request logging and analysis tool designed to help you collect and examine interesting HTTP requests from across Burp Suite.
+3. **Manage Ports**:
+   - Click **Kill Used Ports** to open a dialog listing processes on TCP ports.
+   - Select and terminate processes to free up ports (use with caution).
 
-**How It Works: A 4-Step Workflow**
-1. **Automatic Logging:** Anvil automatically captures requests from other Burp tools (like Proxy, Repeater, etc.) and displays them in the main log table.
-2. **Inspect a Request:** Click any entry in the log table to view its details. The 'Request' and 'Response' tabs show the raw data, while the 'Summary' tab provides a clean overview, including parsed URL and body parameters.
-3. **Collect Interesting Findings:** If you find a significant request, select it in the table and click the 'Add to List' button. This appends its summary to the 'Collected Items' panel on the right.
-4. **Manage Your List:** Use the 'Collected Items' panel to keep a running list of important requests for your report. The 'Clear History' button will clear this list.
+4. **Stop & Clear**:
+   - Click **Stop Listener** to shut down the server.
+   - Use **Clear History** to reset the request log.
 
-**Key Components**
-- **Request Log:** A sortable table showing the #, Tool, Host, Method, and URL for every captured request.
-- **Detailed Viewer:** A tabbed pane for deep inspection of the selected request's Summary, full Request, and full Response.
-- **Collected Items Panel:** A dedicated area to save summaries of key requests, preventing them from getting lost in the noise.
+### Anvil Usage
+1. **Capture Requests**:
+   - Anvil automatically logs requests from Burp tools into the main table.
+
+2. **Inspect Details**:
+   - Select a log entry to view its **Summary**, **Request**, and **Response** in the tabbed viewer.
+
+3. **Collect Findings**:
+   - Click **Add to List** to append the selected request's summary to the **Collected Items** panel.
+   - Use **Copy List** to copy collected items to the clipboard.
+
+4. **Manage History**:
+   - Click **Clear History** to reset the log and collected items.
+
+### Assistant Usage
+1. **Configure API Keys**:
+   - In the **Settings** tab, enter API keys for providers like Gemini, ChatGPT, or Claude, then save.
+
+2. **Send a Request**:
+   - Right-click an HTTP request and select **Send to Hefaistos > Send to Assistant**.
+   - The request populates in the prompt area with the selected template.
+
+3. **Customize & Submit**:
+   - Edit the prompt or switch templates via the dropdown.
+   - Click **Submit to AI** to get analysis in the **AI Response** panel.
+
+4. **Manage Templates**:
+   - In the **Templates** tab, add, edit, or remove custom prompts.
 
 ## Screenshots
 
-<img width="1835" height="912" alt="image" src="https://github.com/user-attachments/assets/291b74d0-09cd-4660-92fa-36de296bcc6e" />
-<img width="1636" height="838" alt="image" src="https://github.com/user-attachments/assets/7dcb512a-fef2-46db-b4b0-8a206dc15c71" />
-<img width="1552" height="627" alt="image" src="https://github.com/user-attachments/assets/f02f672f-833f-4941-9e45-95026ed8fab1" />
-<img width="1835" height="944" alt="image" src="https://github.com/user-attachments/assets/4d185286-9b78-473d-82d0-6af39e8f995b" />
-<img width="1379" height="828" alt="image" src="https://github.com/user-attachments/assets/02e408aa-1046-45df-b09e-4fd2fe9e2f21" />
+<img width="1916" height="946" alt="image" src="https://github.com/user-attachments/assets/ae64d089-5b10-4e58-99f4-24f26f18ab68" />
+<img width="1863" height="838" alt="image" src="https://github.com/user-attachments/assets/2e69e86d-4e29-4cdb-997c-2db808116429" />
+<img width="1857" height="628" alt="image" src="https://github.com/user-attachments/assets/86e48b53-ec64-4b37-b129-f793327d2530" />
+<img width="1891" height="916" alt="image" src="https://github.com/user-attachments/assets/be407775-2e68-4296-80dc-206338c3cfe5" />
+<img width="1658" height="778" alt="image" src="https://github.com/user-attachments/assets/37f19902-d3f9-4d33-a035-9368dc6151b6" />
+<img width="1505" height="895" alt="image" src="https://github.com/user-attachments/assets/dd24d07c-17c5-4724-a107-4e58df49c4bc" />
 
 
 ## Credits
