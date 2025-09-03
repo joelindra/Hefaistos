@@ -49,7 +49,6 @@ Hefaistos is a powerful Burp Suite extension designed for penetration testers an
 - **Fuzzing Checklist**: Automated tests for common JWT vulnerabilities (e.g., 'none' algorithm, empty signatures, 'kid' injections).
 - **Algorithm Confusion Attack**: Converts RS256 to HS256 using public keys for potential exploitation.
 - **Brute-Force Attack**: Cracks weak HSxxx secrets using in-memory or file-based wordlists.
-- **Builder**: Generates new JWTs with HS256/384/512 algorithms, custom payloads, and secrets.
 - **Progress & Output**: Displays real-time progress for attacks with detailed, formatted results.
 
 ### Tripod: Webhook Listener & Port Management
@@ -104,7 +103,7 @@ Hefaistos is a powerful Burp Suite extension designed for penetration testers an
    - The request will populate in the **HTTP Request** panel.
 
 2. **Configure Fuzzing**:
-   - Use the **Global Marker** field (default: `FUZZ`) or click **Auto-Detect Parameters** to identify injection points.
+   - Use the **Global Marker** field (default: `§`).
    - Navigate the fuzzing categories (Injection, File/Path, etc.) and enable/disable tests, adjust threads, delays, or load custom wordlists.
 
 3. **Run the Attack**:
@@ -130,10 +129,6 @@ Hefaistos is a powerful Burp Suite extension designed for penetration testers an
      - Perform an **Algorithm Confusion Attack** by providing a public key.
      - Run a **Weak Secret Brute Force** with a wordlist (in-memory or file-based).
    - Monitor progress and results in the **Attack Output** panel.
-
-4. **Build a JWT**:
-   - In the **Builder** tab, select an HSxxx algorithm, enter a payload (JSON), and provide a secret.
-   - Click **Generate Token** to create a new JWT.
 
 ### Tripod Usage
 1. **Start the Listener**:
@@ -182,9 +177,8 @@ Hefaistos is a powerful Burp Suite extension designed for penetration testers an
    - In the **Templates** tab, add, edit, or remove custom prompts.
 
 ## Screenshots
-
-<img width="1916" height="946" alt="image" src="https://github.com/user-attachments/assets/ae64d089-5b10-4e58-99f4-24f26f18ab68" />
-<img width="1863" height="838" alt="image" src="https://github.com/user-attachments/assets/2e69e86d-4e29-4cdb-997c-2db808116429" />
+<img width="1918" height="976" alt="image" src="https://github.com/user-attachments/assets/65de31ad-791e-4ff2-a14d-cf819becbe02" />
+<img width="1910" height="936" alt="image" src="https://github.com/user-attachments/assets/46f1a803-1407-489a-b5ad-b04da58f04b8" />
 <img width="1857" height="628" alt="image" src="https://github.com/user-attachments/assets/86e48b53-ec64-4b37-b129-f793327d2530" />
 <img width="1891" height="916" alt="image" src="https://github.com/user-attachments/assets/be407775-2e68-4296-80dc-206338c3cfe5" />
 <img width="1658" height="778" alt="image" src="https://github.com/user-attachments/assets/37f19902-d3f9-4d33-a035-9368dc6151b6" />
