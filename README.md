@@ -5,6 +5,8 @@
 [![Burp Suite Extension](https://img.shields.io/badge/Burp%20Suite-Extension-orange?style=flat-square)](https://portswigger.net/burp)
 [![Java](https://img.shields.io/badge/Java-11+-blue?style=flat-square)](https://www.oracle.com/java/)
 
+<img width="427" height="640" alt="image" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
+
 H3F41ST0S is a powerful Burp Suite extension designed for web application security testing. It combines multiple tools into a single, hacker-themed interface, offering functionalities for request logging, JWT analysis, fuzzing, webhook listening, reverse shell handling, payload generation, and AI-assisted request analysis. Perfect for penetration testers and security researchers.
 
 > "Not everything needs to be clarified; sometimes, just let them be with their assumptions."  
