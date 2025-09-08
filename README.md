@@ -124,7 +124,7 @@ Navigate to the "H3F41ST0S" tab in Burp Suite to access all tools. Each tool ope
 3. Select a prompt template or edit the prompt manually.
 4. Click "Submit to AI" to receive the analysis in the response panel.
 
-For detailed workflows, refer to the **Usage** tab or `UsagePanel.java`.
+For detailed workflows, refer to the **Usage** tab
 
 ## Configuration
 - **API Keys (Assistant)**: Set in Assistant > Settings tab.
