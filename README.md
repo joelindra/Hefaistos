@@ -1,6 +1,5 @@
 # H3F41ST0S - Burpsuite Extension Toolkit
 
-[![GitHub Release](https://img.shields.io/github/v/release/joelindra/hefaistos?style=flat-square)](https://github.com/joelindra/hefaistos/releases)
 [![GitHub License](https://img.shields.io/badge/License-Hades-blue?style=flat-square)](https://github.com/joelindra/hefaistos/blob/main/LICENSE)
 [![Burp Suite Extension](https://img.shields.io/badge/Burp%20Suite-Extension-orange?style=flat-square)](https://portswigger.net/burp)
 [![Java](https://img.shields.io/badge/Java-11+-blue?style=flat-square)](https://www.oracle.com/java/)
