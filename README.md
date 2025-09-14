@@ -137,7 +137,6 @@ For detailed workflows, refer to the **Usage** tab
 <img width="1912" height="925" alt="image" src="https://github.com/user-attachments/assets/a6813a7a-ea9b-49a7-bd54-a6cdb09f470d" />
 <img width="1912" height="922" alt="image" src="https://github.com/user-attachments/assets/96b8b113-2140-45c3-a213-874bba80fa14" />
 <img width="1909" height="924" alt="image" src="https://github.com/user-attachments/assets/995145fe-99ab-4063-9efe-750b3c0de7af" />
-<img width="1904" height="920" alt="image" src="https://github.com/user-attachments/assets/400f5aaf-f628-4a52-8e6b-af9c88a8d58a" />
 
 Report bugs or suggest features in the [Issues](https://github.com/joelindra/hefaistos/issues) section.
 
