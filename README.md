@@ -1,10 +1,10 @@
-# H3F41ST0S - Burpsuite Extension Toolkit
+# H3F41ST0S - Burp Suite Extension Toolkit
 
 [![GitHub License](https://img.shields.io/badge/License-Hades-blue?style=flat-square)](https://github.com/joelindra/hefaistos/blob/main/LICENSE)
 [![Burp Suite Extension](https://img.shields.io/badge/Burp%20Suite-Extension-orange?style=flat-square)](https://portswigger.net/burp)
 [![Java](https://img.shields.io/badge/Java-11+-blue?style=flat-square)](https://www.oracle.com/java/)
 
-<img width="427" height="640" alt="image" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
+<img width="427" height="640" alt="H3F41ST0S Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
 H3F41ST0S is a powerful Burp Suite extension designed for web application security testing. It combines multiple tools into a single, hacker-themed interface, offering functionalities for request logging, JWT analysis, fuzzing, webhook listening, reverse shell handling, payload generation, and AI-assisted request analysis. Perfect for penetration testers and security researchers.
 
@@ -79,7 +79,7 @@ Integrates AI for automated security analysis of HTTP requests.
 
 | Feature | Description |
 |---------|-------------|
-| Providers | Gemini 2.5 Pro (primary), ChatGPT, Claude (placeholders) |
+| Providers | Gemini 2.5 Pro (primary), ChatGPT, Claude |
 | Prompt System | Customizable templates, editable prompt area |
 | Workflow | Send requests from Burp, edit prompts, submit for AI analysis |
 | Settings | Configure API keys and manage templates |
@@ -87,16 +87,17 @@ Integrates AI for automated security analysis of HTTP requests.
 ### Additional Tabs
 - **Usage**: Provides detailed, styled instructions for all tools.
 - **About**: Features a glitchy, hacker-themed UI with system info and external links.
+- **Update**: Automatic update checker with GitHub integration, release notes, and one-click downloads.
 
 ## Installation
 
 1. **Prerequisites**:
    - Burp Suite Professional or Community Edition.
-   - Java 8+ (Burp's runtime environment).
+   - Java 11+ (Burp's runtime environment).
 
-2. **BDownload**:
-   - Clone the repository: `git clone https://github.com/joelindra/Hefaistos.git`
-   - Or ownload the pre-built JAR from [Releases](https://github.com/yourusername/H3F41ST0S/releases).
+2. **Download**:
+   - Clone the repository: `git clone https://github.com/joelindra/hefaistos.git`
+   - Or download the pre-built JAR from [Releases](https://github.com/joelindra/hefaistos/releases).
 
 3. **Load in Burp Suite**:
    - Open Burp Suite > Extender > Extensions > Add.
@@ -124,7 +125,7 @@ Navigate to the "H3F41ST0S" tab in Burp Suite to access all tools. Each tool ope
 3. Select a prompt template or edit the prompt manually.
 4. Click "Submit to AI" to receive the analysis in the response panel.
 
-For detailed workflows, refer to the **Usage** tab
+For detailed workflows, refer to the **Usage** tab.
 
 ## Configuration
 - **API Keys (Assistant)**: Set in Assistant > Settings tab.
@@ -132,16 +133,16 @@ For detailed workflows, refer to the **Usage** tab
 - **Ports (Tripod)**: Ensure ports are accessible; use "Kill Used Ports" to resolve conflicts (use cautiously).
 
 ## Screenshots
-<img width="1919" height="951" alt="image" src="https://github.com/user-attachments/assets/f1692344-0000-4db8-be6d-c5a778284366" />
-<img width="1900" height="905" alt="image" src="https://github.com/user-attachments/assets/204c2878-1f3d-4ee0-bb79-250f8c76e510" />
-<img width="1912" height="925" alt="image" src="https://github.com/user-attachments/assets/a6813a7a-ea9b-49a7-bd54-a6cdb09f470d" />
-<img width="1912" height="922" alt="image" src="https://github.com/user-attachments/assets/96b8b113-2140-45c3-a213-874bba80fa14" />
-<img width="1909" height="924" alt="image" src="https://github.com/user-attachments/assets/995145fe-99ab-4063-9efe-750b3c0de7af" />
+<img width="1918" height="953" alt="image" src="https://github.com/user-attachments/assets/584e2333-c254-4a44-8e38-bc214d768aab" />
+<img width="1919" height="977" alt="image" src="https://github.com/user-attachments/assets/291599a9-c26c-469b-960a-d3ba208a81e3" />
+<img width="1917" height="973" alt="image" src="https://github.com/user-attachments/assets/7a8aaf08-68c7-4b71-80df-a2af8c105e66" />
+<img width="1918" height="975" alt="image" src="https://github.com/user-attachments/assets/aa2f16af-81bb-401f-b6f4-a7d14bf3ccb4" />
+<img width="1916" height="950" alt="image" src="https://github.com/user-attachments/assets/08412ef0-c891-4606-a7c3-5f22461c7f2f" />
 
 Report bugs or suggest features in the [Issues](https://github.com/joelindra/hefaistos/issues) section.
 
 ## License
-Licensed under the Hades License (see `AboutPanel.java` for details).  
+Licensed under the Hades License
 © 2025 Joel Indra | Underworld & AI  
 
-For more information, visit [Website](https://docs.joelindra.id) or [GitHub](https://github.com/joelindra).
+For more information, visit [Website](https://docs.joelindra.id) or [GitHub](https://github.com/joelindra/hefaistos).
