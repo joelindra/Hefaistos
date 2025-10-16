@@ -4,6 +4,11 @@
 
 <img width="427" height="640" alt="H3F41ST0S Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
+### Documentation
+```
+https://joelindra.gitbook.io/all-tools/hefaistos
+```
+
 **Hefaistos** is a powerful, modular Burp Suite extension designed for web application security testing. Inspired by the mythical blacksmith of the gods, it forges tools to hammer vulnerabilities, listen for callbacks, and analyze requests with AI-powered insights. Built with a sleek, modern UI featuring glitch effects and neon themes, Hefaistos combines usability with advanced functionality for pentesters and bug bounty hunters.
 
 This extension integrates seamlessly into Burp Suite, adding a dedicated tab with multiple sub-tools (panels) for fuzzing, JWT manipulation, reverse shells, request logging, and AI-driven analysis. It's actively maintained, with auto-update support via GitHub releases.
