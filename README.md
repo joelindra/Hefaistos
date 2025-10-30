@@ -234,10 +234,6 @@ Licensed under the MIT License. See `LICENSE` for details.
 - Discussions: [GitHub Discussions](https://github.com/joelindra/Hefaistos/discussions)
 - Documentation: [GitBook — Hefaistos](https://joelindra.gitbook.io/all-tools/hefaistos)
 
-Thanks for using Hefaistos — forge your way to better security! ⚒️🔥
+Thanks for using Hefaistos — forge your way to better testing! ⚒️🔥
 
-Built with ❤️ by Joel Indra and contributors.
-
-Last Updated: September 15, 2025
-
-
+Built with Z by Joel Indra.
