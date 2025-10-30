@@ -236,4 +236,4 @@ Licensed under the MIT License. See `LICENSE` for details.
 
 Thanks for using Hefaistos — forge your way to better testing! ⚒️🔥
 
-Built with Z by Joel Indra.
+Built with N by Joel Indra.
