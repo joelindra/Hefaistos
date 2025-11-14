@@ -1,9 +1,10 @@
 ## Hefaistos — Burp Suite Extension Suite
+
+<img width="427" height="640" alt="H3F41ST0S Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
+
 [![GitHub Repo stars](https://img.shields.io/github/stars/joelindra/Hefaistos?style=social)](https://github.com/joelindra/Hefaistos)
 [![GitHub issues](https://img.shields.io/github/issues/joelindra/Hefaistos)](https://github.com/joelindra/Hefaistos/issues)
 [![Burp Suite Compatible](https://img.shields.io/badge/Burp%20Suite-Compatible-brightgreen)](https://portswigger.net/burp)
-
-<img width="427" height="640" alt="H3F41ST0S Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
 
 Hefaistos is a powerful, modular Burp Suite extension designed for web application security testing. Inspired by the mythical blacksmith of the gods, it forges tools to hammer vulnerabilities, listen for callbacks, and analyze requests with AI-powered insights. Built with a sleek, modern UI featuring glitch effects and neon themes, Hefaistos combines usability with advanced functionality for pentesters and bug bounty hunters.
 
@@ -17,22 +18,21 @@ Hefaistos is a powerful, modular Burp Suite extension designed for web applicati
 
 ## Table of Contents
 - [Features](#features)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
 - [Panel Guides](#panel-guides)
   - [Forge — Fuzzer](#forge--fuzzer)
   - [Hammer — JWT Tool](#hammer--jwt-tool)
   - [Tripod — Listener](#tripod--listener)
   - [Anvil — Request Logger](#anvil--request-logger)
   - [Assistant — AI Analyzer](#assistant--ai-analyzer)
-  - [Usage](#usage)
-  - [About and Updates](#about-and-updates)
+  - [Usage — In-App Guide](#usage--in-app-guide)
+  - [About — Extension Information](#about--extension-information)
+  - [Update — Auto-Updater](#update--auto-updater)
 - [Context Menu and Integrations](#context-menu-and-integrations)
 - [Troubleshooting](#troubleshooting)
 - [FAQ](#faq)
 - [Security, Privacy and Legal](#security-privacy-and-legal)
 - [Roadmap](#roadmap)
+- [Contributing](#contributing)
 - [License](#license)
 - [Support](#support)
 
@@ -40,121 +40,313 @@ Hefaistos is a powerful, modular Burp Suite extension designed for web applicati
 
 ## Features
 
-- **Modular Tool Suite (Panels):**
-  - **Forge:** Advanced fuzzer (multi-category payloads, custom wordlists, parallelism, RPM throttling, real-time results, export).
-  - **Hammer:** JWT analyzer and attacker (decode/encode, brute-force, alg confusion, checklist and fuzzing).
-  - **Tripod:** OOB testing utilities (HTTP webhook listener, reverse shell handler, payload generator, port killer).
-  - **Anvil:** Request logger and collector (auto-capture from Burp tools, summaries, curated list, export).
-  - **Assistant:** LLM-powered analysis (Gemini, OpenAI, Claude; bulk analysis; prompt templates; history and export).
-  - **Usage, About, Updates:** In-product docs, UI showcase, and one-click updater with hash verification.
+### Core Tool Panels (5)
 
-- **Modern UI:** Dark theme with neon accents, glitch effects, scan lines, responsive layouts.
-- **Context Menu Integration:** “Send to Hefaistos → [Panel]” from Proxy, Repeater, etc.
-- **Extensibility:** YAML config, modular panels, JSON templates, customizable colors/fonts.
-- **Security Focus:** Built-in checklists, encodings, and OOB support via Burp Collaborator.
+- **Forge — Fuzzer:** Advanced HTTP request fuzzing with multi-target support, pre-built payload categories (SQLi, XSS, Path Traversal, Command Injection, XXE, SSRF), custom wordlists, parallel execution, RPM throttling, real-time results monitoring, grep highlighting, and comprehensive export capabilities.
 
----
+- **Hammer — JWT Tool:** Complete JWT analysis and attack suite featuring automatic decode/encode, interactive editing, brute-force attacks with wordlists, algorithm confusion attacks, automated security checks, fuzzing capabilities, and Burp Collaborator integration.
 
-## Requirements
+- **Tripod — Listener:** Out-of-band testing utilities with dual-mode operation: HTTP webhook listener for capturing callbacks and interactive reverse shell handler. Includes payload generator with multiple templates (reverse shells, web shells, exfil), OS/shell selection, encoding options, and port management utilities.
 
-- **Burp Suite Professional** (Community may work but lacks some integrations)
-- **Java 8+** (bundled with Burp)
-- **Internet access** (for AI providers, updates, Collaborator)
-- **API keys** for Assistant panel (Gemini, OpenAI, Anthropic) if used
+- **Anvil — Request Logger:** Intelligent request capture and analysis tool that automatically logs requests from all Burp Suite tools, provides parsed summaries with parameter extraction, curated list functionality, and export capabilities for reporting.
 
-No additional system dependencies required. JAR ships with bundled libs.
+- **Assistant — AI Analyzer:** LLM-powered security analysis supporting multiple providers (Gemini 2.5 Pro, OpenAI GPT, Anthropic Claude), customizable prompt templates, bulk request analysis, result history, and secure API key management.
 
----
+### Utility Panels (3)
 
-## Installation
+- **Usage:** Interactive in-app guide with step-by-step tutorials, visual references, and quick-start guides for all panels.
 
-1. Download the JAR from [GitHub Releases](https://github.com/joelindra/Hefaistos/releases).
-2. In Burp Suite: Extender → Extensions → Add → Extension type: Java → Select `Hefaistos.jar` → Next → Load → Close.
-3. Verify: A new tab “Hefaistos” appears; Extender → Output shows “initialized successfully!”.
-4. Optional: Open the “Updates” panel to auto-check for new versions.
+- **About:** Neon-themed information panel showcasing extension details with glitch effects and cyberpunk aesthetics.
 
-Pro Tip: You can enable Burp's “Auto-reload extensions”, though manual reload is recommended for safety.
+- **Update:** One-click auto-updater with GitHub release checking, SHA-256 hash verification, release notes display, and safe update process.
 
----
+### Additional Features
 
-## Quick Start
+- **Modern UI:** Dark/light theme support with automatic adaptation to Burp Suite's theme, neon accents, glitch effects, and responsive layouts.
 
-1. Launch Burp and capture traffic via Proxy.
-2. Right-click a request in Proxy/HTTP history → Send to Hefaistos → Choose a panel.
-3. Explore Hefaistos tabs:
-   - Anvil: Logs and summarizes traffic automatically.
-   - Assistant: Submit a request for LLM-based analysis.
-   - Tripod: Start an HTTP webhook listener or reverse shell handler.
-4. Refer to the “Usage” panel for in-app tutorials.
+- **Context Menu Integration:** Seamless "Send to Hefaistos → [Panel]" integration from Proxy, Repeater, Intruder, and other Burp tools.
 
-Example workflow:
-- Capture a login request → Hammer to analyze/crack JWT → Forge to fuzz parameters → Tripod for OOB payloads → Assistant to produce a report.
+- **Extensibility:** YAML configuration support, modular panel architecture, JSON templates, and customizable themes.
+
+- **Security Focus:** Built-in vulnerability checklists, multiple encoding options, OOB testing support via Burp Collaborator, and secure credential storage.
 
 ---
 
 ## Panel Guides
 
+Hefaistos consists of **8 main panels** organized into two groups: **Core Tools** (Forge, Hammer, Tripod, Anvil, Assistant) and **Utility Panels** (Usage, About, Update).
+
+---
+
 ### Forge — Fuzzer
 
-- Load requests via context menu (Send to Forge) or paste manually.
-- Mark insertion points with `§` (default) or a custom marker.
-- Choose payloads by category (SQLi, XSS, Path Traversal, etc.) or load custom wordlists.
-- Configure threads and requests-per-minute for controlled scanning.
-- Start and monitor results in the sortable, color-coded table (e.g., 200=green, 500=red).
-- Inspect modified vs. original request/response in side-by-side viewers.
-- Export results to file for reporting.
+**Advanced HTTP request fuzzing with multi-target support and real-time monitoring.**
+
+**Key Features:**
+- **Request Management:**
+  - Load requests via context menu ("Send to Forge") or paste manually
+  - Support for multiple request targets simultaneously
+  - Request selector dropdown to switch between loaded requests
+  - Custom marker support (default: `§`) for insertion points
+
+- **Payload Configuration:**
+  - Pre-built payload categories: SQL Injection, XSS, Path Traversal, Command Injection, XXE, SSRF, and more
+  - Custom wordlist support (load from file)
+  - Per-category payload configuration and editing
+  - Multiple insertion points per request
+
+- **Fuzzing Controls:**
+  - Thread count configuration for parallel execution
+  - Requests-per-minute (RPM) throttling to avoid overwhelming targets
+  - Parallel execution toggle
+  - Start/Stop controls with progress tracking
+
+- **Results & Analysis:**
+  - Real-time results table with sortable columns
+  - Color-coded status codes (200=green, 3xx=yellow, 4xx=orange, 5xx=red)
+  - Side-by-side comparison: original vs. modified request/response
+  - Response length, status code, and timing information
+  - Grep highlighting for custom patterns
+  - Export results to file (CSV/JSON)
+
+- **Advanced Features:**
+  - Category and target filtering
+  - Request/response viewers with syntax highlighting
+  - Status counters (total, success, redirect, error, server error)
+  - Progress bar and real-time status updates
+
+---
 
 ### Hammer — JWT Tool
 
-- Paste a JWT to auto-decode header and payload.
-- Edit mode enables claims/alg modifications; save/reset quickly.
-- Attacks:
-  - Brute-force secrets via wordlist.
-  - Algorithm confusion with supplied public key.
-  - Automated security checks and fuzzing.
-- Copy tampered tokens and see detailed output.
+**Comprehensive JWT (JSON Web Token) analyzer, editor, and attacker.**
+
+**Key Features:**
+- **JWT Decoding & Display:**
+  - Automatic header and payload decoding on paste
+  - Pretty-printed JSON with syntax highlighting
+  - Security analysis with vulnerability checklist
+  - Claims viewer with expandable sections
+
+- **JWT Editing:**
+  - Edit mode for modifying claims and algorithm
+  - Quick save/reset functionality
+  - Real-time token regeneration
+  - Copy tampered tokens to clipboard
+
+- **Attack Capabilities:**
+  - **Brute-Force Attack:**
+    - Wordlist-based secret/key cracking
+    - Progress tracking with cancel support
+    - Configurable thread count
+  - **Algorithm Confusion:**
+    - Public key injection attacks
+    - RSA/ECDSA key support
+    - Automatic token regeneration
+  - **Security Fuzzing:**
+    - Automated security checks
+    - Claim manipulation testing
+    - Burp Collaborator integration for OOB testing
+
+- **Additional Tools:**
+  - Secret/key input for manual verification
+  - Detailed attack output with timestamps
+  - Export capabilities for analysis results
+
+---
 
 ### Tripod — Listener
 
-- Modes: HTTP Webhook or Reverse Shell (interactive terminal).
-- Choose a port and click Start Listener.
-- Payload generator:
-  - Reverse shell, web shell, or exfil templates.
-  - OS selection (Linux/Windows), shell type (Bash/PowerShell).
-  - Auto-fill IP/port from the listener.
-  - Optional encodings (Base64, URL).
-- Utilities include “Kill Used Ports” for conflicts.
+**Out-of-Band (OOB) testing utilities with HTTP webhook listener and reverse shell handler.**
+
+**Key Features:**
+- **Listener Modes:**
+  - **HTTP Webhook Mode:**
+    - Capture HTTP requests with full headers and body
+    - Request history table with sortable columns
+    - Request/response viewer with syntax highlighting
+    - Search and filter capabilities
+  - **Reverse Shell Mode:**
+    - Interactive terminal interface
+    - Real-time command execution
+    - Customizable shell prompt
+    - Input/output separation with color coding
+
+- **Payload Generator:**
+  - **Payload Categories:**
+    - Reverse shell payloads (Bash, PowerShell, Python, etc.)
+    - Web shell templates (PHP, JSP, ASPX)
+    - Data exfiltration payloads
+  - **Configuration Options:**
+    - OS selection (Linux, Windows)
+    - Shell type (Bash, PowerShell, CMD)
+    - IP address auto-fill from listener
+    - Port configuration
+    - Encoding options (Base64, URL encoding, Hex)
+  - **Templates:**
+    - Pre-built payload templates
+    - Customizable payload structure
+    - Copy to clipboard functionality
+
+- **Utilities:**
+  - Port conflict resolution ("Kill Used Ports")
+  - Request history export
+  - Terminal search and highlighting
+  - Auto-scroll toggle
+  - Theme toggle (dark/light)
+
+- **Advanced Features:**
+  - Network interface detection
+  - Multiple client connection support (HTTP mode)
+  - Request timestamping
+  - Export capabilities
+
+---
 
 ### Anvil — Request Logger
 
-- Auto-captures requests from Burp tools into a sortable table.
-- Click a row to view parsed summaries and raw request/response.
-- Curate interesting requests with “Add to List”; export or clear.
+**Automatic request capture, logging, and analysis with intelligent summarization.**
+
+**Key Features:**
+- **Automatic Capture:**
+  - Auto-captures requests from all Burp Suite tools (Proxy, Repeater, Intruder, Scanner)
+  - Real-time logging with sortable table
+  - Request counter and timestamp tracking
+
+- **Request Analysis:**
+  - **Summary View:**
+    - Parsed request summary with method, URL, parameters
+    - Parameter selection with checkboxes
+    - Collapsible sections for extra parameters
+    - Request/response metadata
+  - **Detailed View:**
+    - Full request/response viewers (Burp's native editors)
+    - Syntax highlighting
+    - Request modification capabilities
+
+- **Curated Lists:**
+  - "Add to List" functionality for interesting requests
+  - Side panel for curated request summaries
+  - Export curated lists
+  - Clear list functionality
+
+- **Export & Management:**
+  - Export full log or curated list
+  - Clear log functionality
+  - Request filtering and search
+  - Parameter-based organization
+
+---
 
 ### Assistant — AI Analyzer
 
-- Configure API keys in the Settings tab (Gemini, OpenAI, Anthropic).
-- Send a request via context menu or paste manually.
-- Choose a provider and a prompt template, adjust if needed.
-- Bulk mode supports multiple requests separated by `---REQUEST_SEPARATOR---`.
-- View results and access history; export as needed.
+**LLM-powered security analysis with multiple AI provider support and bulk processing.**
 
-### Usage
+**Key Features:**
+- **AI Provider Support:**
+  - **Gemini 2.5 Pro** (Google)
+  - **OpenAI** (GPT models)
+  - **Anthropic** (Claude models)
+  - Easy provider switching via dropdown
 
-- In-app guide with step-by-step tutorials, emojis, and links.
-- Quick reference for new users without leaving Burp.
+- **Configuration:**
+  - API key management per provider
+  - Secure storage in Burp's extension settings
+  - Config export/import functionality
+  - Settings persistence
 
-### About and Updates
+- **Prompt Templates:**
+  - Pre-built security analysis templates
+  - Custom template creation and editing
+  - Template management (add, edit, delete)
+  - Template persistence
 
-- About: Neon/glitch themed extension info.
-- Updates: Auto-checks GitHub for new versions, shows notes and SHA-256 hash, and downloads with one click. Manual reload in Burp is required.
+- **Analysis Modes:**
+  - **Single Request Analysis:**
+    - Send via context menu or paste manually
+    - Template selection and customization
+    - Real-time analysis results
+  - **Bulk Analysis:**
+    - Multiple requests separated by `---REQUEST_SEPARATOR---`
+    - Batch processing with progress tracking
+    - Consolidated results view
+
+- **Results & History:**
+  - Formatted analysis results with syntax highlighting
+  - Request/response history
+  - Export analysis results
+  - Copy to clipboard functionality
+
+---
+
+### Usage — In-App Guide
+
+**Interactive tutorial and quick reference guide built into the extension.**
+
+**Key Features:**
+- Step-by-step tutorials for each panel
+- Visual guides with emojis and formatting
+- Quick reference cards for common tasks
+- Links to external documentation
+- Modern card-based UI design
+- No need to leave Burp Suite for documentation
+
+---
+
+### About — Extension Information
+
+**Neon-themed information panel showcasing the extension.**
+
+**Key Features:**
+- Extension metadata and version information
+- Glitch effects and animations
+- Neon/cyberpunk aesthetic
+- Links to documentation and resources
+- Visual showcase of the extension's theme
+
+---
+
+### Update — Auto-Updater
+
+**One-click update system with version checking and hash verification.**
+
+**Key Features:**
+- **Automatic Version Checking:**
+  - Checks GitHub Releases for new versions
+  - Background update notifications
+  - Tab title indicator when updates are available
+
+- **Update Process:**
+  - Release notes display
+  - SHA-256 hash verification for security
+  - One-click download and update
+  - Manual reload prompt after update
+
+- **Safety Features:**
+  - Hash verification before installation
+  - Version comparison
+  - Update history tracking
+  - Rollback information
 
 ---
 
 ## Context Menu and Integrations
 
-- From Proxy, Repeater, etc.: Right-click → Send to Hefaistos → [Forge | Hammer | Tripod | Anvil | Assistant].
-- Out-of-Band testing integrates with Burp Collaborator.
+### Context Menu Options
+
+Right-click any HTTP request in Burp Suite (Proxy, Repeater, Intruder, Scanner, etc.) to access:
+
+- **Send to Hefaistos → Forge:** Load request into the fuzzer for payload testing
+- **Send to Hefaistos → Hammer:** Analyze JWT tokens from requests
+- **Send to Hefaistos → Tripod:** Generate OOB payloads for the request
+- **Send to Hefaistos → Anvil:** Manually add request to the logger (auto-capture is enabled by default)
+- **Send to Hefaistos → Assistant:** Submit request for AI-powered security analysis
+
+### Integrations
+
+- **Burp Collaborator:** Integrated OOB testing support in Hammer (JWT fuzzing) and Forge (payload testing)
+- **Burp Suite Tools:** Seamless integration with Proxy, Repeater, Intruder, Scanner, and other Burp tools
+- **Auto-Capture:** Anvil automatically captures requests from all Burp Suite tools without manual intervention
 
 ---
 
@@ -207,24 +399,9 @@ Logs: All output/errors appear under Extender → Output in Burp.
 
 Track progress and suggest features in [GitHub Issues](https://github.com/joelindra/Hefaistos/issues) and [Discussions](https://github.com/joelindra/Hefaistos/discussions).
 
----
-
 ## License
 
 Licensed under the MIT License. See `LICENSE` for details.
-
----
-
-## Screenshots
-<img width="1918" height="953" alt="image" src="https://github.com/user-attachments/assets/584e2333-c254-4a44-8e38-bc214d768aab" />
-
-<img width="1919" height="977" alt="image" src="https://github.com/user-attachments/assets/291599a9-c26c-469b-960a-d3ba208a81e3" />
-
-<img width="1917" height="973" alt="image" src="https://github.com/user-attachments/assets/7a8aaf08-68c7-4b71-80df-a2af8c105e66" />
-
-<img width="1918" height="975" alt="image" src="https://github.com/user-attachments/assets/aa2f16af-81bb-401f-b6f4-a7d14bf3ccb4" />
-
-<img width="1916" height="950" alt="image" src="https://github.com/user-attachments/assets/08412ef0-c891-4606-a7c3-5f22461c7f2f" />
 
 ---
 
@@ -234,6 +411,4 @@ Licensed under the MIT License. See `LICENSE` for details.
 - Discussions: [GitHub Discussions](https://github.com/joelindra/Hefaistos/discussions)
 - Documentation: [GitBook — Hefaistos](https://joelindra.gitbook.io/all-tools/hefaistos)
 
-Thanks for using Hefaistos — forge your way to better testing! ⚒️🔥
-
-Built with N by Joel Indra.
+Thanks for using Hefaistos — forge your way to better security! ⚒️🔥
