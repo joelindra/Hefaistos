@@ -6,11 +6,7 @@
 [![GitHub issues](https://img.shields.io/github/issues/joelindra/Hefaistos)](https://github.com/joelindra/Hefaistos/issues)
 [![Burp Suite Compatible](https://img.shields.io/badge/Burp%20Suite-Compatible-brightgreen)](https://portswigger.net/burp)
 
-Hefaistos is a powerful, modular Burp Suite extension designed for web application security testing. Inspired by the mythical blacksmith of the gods, it forges tools to hammer vulnerabilities, listen for callbacks, and analyze requests with AI-powered insights. Built with a sleek, modern UI featuring glitch effects and neon themes, Hefaistos combines usability with advanced functionality for pentesters and bug bounty hunters.
-
-- **Docs:** [GitBook — Hefaistos](https://joelindra.gitbook.io/all-tools/hefaistos)
-- **Latest Release:** [GitHub Releases](https://github.com/joelindra/Hefaistos/releases)
-- **Screenshots:** See below
+Hefaistos is a powerful, modular Burp Suite extension designed for web application security testing. Inspired by the mythical blacksmith of the gods, it forges tools to hammer vulnerabilities, listen for callbacks, convert curl commands, and analyze requests. Built with a sleek, modern UI featuring glitch effects and neon themes, Hefaistos combines usability with advanced functionality for pentesters and bug bounty hunters.
 
 > Note: Hefaistos is for authorized security testing only. Always obtain explicit permission before using these tools on any target.
 
@@ -22,8 +18,8 @@ Hefaistos is a powerful, modular Burp Suite extension designed for web applicati
   - [Forge — Fuzzer](#forge--fuzzer)
   - [Hammer — JWT Tool](#hammer--jwt-tool)
   - [Tripod — Listener](#tripod--listener)
+  - [Curltorepeater — Curl Converter](#curltorepeater--curl-converter)
   - [Anvil — Request Logger](#anvil--request-logger)
-  - [Assistant — AI Analyzer](#assistant--ai-analyzer)
   - [Usage — In-App Guide](#usage--in-app-guide)
   - [About — Extension Information](#about--extension-information)
   - [Update — Auto-Updater](#update--auto-updater)
@@ -32,7 +28,6 @@ Hefaistos is a powerful, modular Burp Suite extension designed for web applicati
 - [FAQ](#faq)
 - [Security, Privacy and Legal](#security-privacy-and-legal)
 - [Roadmap](#roadmap)
-- [Contributing](#contributing)
 - [License](#license)
 - [Support](#support)
 
@@ -48,9 +43,9 @@ Hefaistos is a powerful, modular Burp Suite extension designed for web applicati
 
 - **Tripod — Listener:** Out-of-band testing utilities with dual-mode operation: HTTP webhook listener for capturing callbacks and interactive reverse shell handler. Includes payload generator with multiple templates (reverse shells, web shells, exfil), OS/shell selection, encoding options, and port management utilities.
 
-- **Anvil — Request Logger:** Intelligent request capture and analysis tool that automatically logs requests from all Burp Suite tools, provides parsed summaries with parameter extraction, curated list functionality, and export capabilities for reporting.
+- **Curltorepeater — Curl Converter:** Convenient curl command converter that transforms standard curl commands into HTTP requests and automatically sends them through Burp Suite proxy. Supports all common curl options including custom headers, request methods (GET, POST, PUT, DELETE, PATCH), authentication, and body data. Perfect for quickly testing API endpoints and converting browser-generated curl commands.
 
-- **Assistant — AI Analyzer:** LLM-powered security analysis supporting multiple providers (Gemini 2.5 Pro, OpenAI GPT, Anthropic Claude), customizable prompt templates, bulk request analysis, result history, and secure API key management.
+- **Anvil — Request Logger:** Intelligent request capture and analysis tool that automatically logs requests from all Burp Suite tools, provides parsed summaries with parameter extraction, curated list functionality, and export capabilities for reporting.
 
 ### Utility Panels (3)
 
@@ -74,7 +69,7 @@ Hefaistos is a powerful, modular Burp Suite extension designed for web applicati
 
 ## Panel Guides
 
-Hefaistos consists of **8 main panels** organized into two groups: **Core Tools** (Forge, Hammer, Tripod, Anvil, Assistant) and **Utility Panels** (Usage, About, Update).
+Hefaistos consists of **8 main panels** organized into two groups: **Core Tools** (Forge, Hammer, Tripod, Curltorepeater, Anvil) and **Utility Panels** (Usage, About, Update).
 
 ---
 
@@ -203,6 +198,52 @@ Hefaistos consists of **8 main panels** organized into two groups: **Core Tools*
 
 ---
 
+### Curltorepeater — Curl Converter
+
+**Convert curl commands to HTTP requests and send them through Burp Suite proxy.**
+
+**Key Features:**
+- **Curl Command Parsing:**
+  - Automatic parsing of curl commands from browser/terminal
+  - Support for quoted and unquoted URLs
+  - Header extraction from `-H` or `--header` flags
+  - Request body extraction from `-d`, `--data`, `--data-raw`, `--data-binary`
+  - HTTP method detection from `-X` or `--request` flags
+  - Basic authentication support via `-u` or `--user` flags
+
+- **Request Execution:**
+  - Automatic conversion to HTTP request format
+  - Sends requests through Burp Suite proxy automatically
+  - Request/response viewers for full analysis
+  - Status code and response information display
+  - Error handling with clear messages
+
+- **Supported Curl Options:**
+  - `-X` / `--request`: HTTP method specification
+  - `-H` / `--header`: Custom headers
+  - `-d` / `--data` / `--data-raw` / `--data-binary`: Request body
+  - `-u` / `--user`: Basic authentication
+  - URL parsing (with or without quotes)
+
+- **Use Cases:**
+  - Convert browser DevTools curl commands
+  - Test API endpoints quickly without terminal
+  - Integrate external tools with Burp Suite
+  - Replay requests from documentation
+  - Convert Postman/Insomnia curl exports
+
+**Example Usage:**
+```bash
+curl -X POST https://api.example.com/data \
+  -H "Authorization: Bearer token" \
+  -H "Content-Type: application/json" \
+  -d '{"key":"value"}'
+```
+
+Simply paste the curl command into Curltorepeater and click Submit to send it through Burp proxy.
+
+---
+
 ### Anvil — Request Logger
 
 **Automatic request capture, logging, and analysis with intelligent summarization.**
@@ -235,47 +276,6 @@ Hefaistos consists of **8 main panels** organized into two groups: **Core Tools*
   - Clear log functionality
   - Request filtering and search
   - Parameter-based organization
-
----
-
-### Assistant — AI Analyzer
-
-**LLM-powered security analysis with multiple AI provider support and bulk processing.**
-
-**Key Features:**
-- **AI Provider Support:**
-  - **Gemini 2.5 Pro** (Google)
-  - **OpenAI** (GPT models)
-  - **Anthropic** (Claude models)
-  - Easy provider switching via dropdown
-
-- **Configuration:**
-  - API key management per provider
-  - Secure storage in Burp's extension settings
-  - Config export/import functionality
-  - Settings persistence
-
-- **Prompt Templates:**
-  - Pre-built security analysis templates
-  - Custom template creation and editing
-  - Template management (add, edit, delete)
-  - Template persistence
-
-- **Analysis Modes:**
-  - **Single Request Analysis:**
-    - Send via context menu or paste manually
-    - Template selection and customization
-    - Real-time analysis results
-  - **Bulk Analysis:**
-    - Multiple requests separated by `---REQUEST_SEPARATOR---`
-    - Batch processing with progress tracking
-    - Consolidated results view
-
-- **Results & History:**
-  - Formatted analysis results with syntax highlighting
-  - Request/response history
-  - Export analysis results
-  - Copy to clipboard functionality
 
 ---
 
@@ -337,16 +337,14 @@ Hefaistos consists of **8 main panels** organized into two groups: **Core Tools*
 Right-click any HTTP request in Burp Suite (Proxy, Repeater, Intruder, Scanner, etc.) to access:
 
 - **Send to Hefaistos → Forge:** Load request into the fuzzer for payload testing
-- **Send to Hefaistos → Hammer:** Analyze JWT tokens from requests
-- **Send to Hefaistos → Tripod:** Generate OOB payloads for the request
 - **Send to Hefaistos → Anvil:** Manually add request to the logger (auto-capture is enabled by default)
-- **Send to Hefaistos → Assistant:** Submit request for AI-powered security analysis
 
 ### Integrations
 
 - **Burp Collaborator:** Integrated OOB testing support in Hammer (JWT fuzzing) and Forge (payload testing)
 - **Burp Suite Tools:** Seamless integration with Proxy, Repeater, Intruder, Scanner, and other Burp tools
 - **Auto-Capture:** Anvil automatically captures requests from all Burp Suite tools without manual intervention
+- **Curl Integration:** Curltorepeater seamlessly converts curl commands and sends them through Burp proxy for analysis
 
 ---
 
@@ -354,12 +352,13 @@ Right-click any HTTP request in Burp Suite (Proxy, Repeater, Intruder, Scanner, 
 
 | Issue | Solution |
 |---|---|
-| Port in use (Tripod) | Use “Kill Used Ports” and ensure the port field is correct. |
-| AI errors (Assistant) | Verify API keys, check provider quotas, see Extender → Output. |
+| Port in use (Tripod) | Use "Kill Used Ports" and ensure the port field is correct. |
+| Curl parsing fails (Curltorepeater) | Check curl command format, ensure URL is properly quoted, verify all flags are supported. |
 | No context menu | Restart Burp, check Extender → Errors for load issues. |
 | Update fails | Download from Releases, unload/reload the JAR in Burp. |
 | Blank panels | Ensure Java 8+, check Extender → Output for stack traces. |
 | Slow fuzzing (Forge) | Reduce threads/RPM; consider target/network latency. |
+| Request not sent (Curltorepeater) | Check Burp proxy settings, ensure proxy is running, verify network connectivity. |
 
 Logs: All output/errors appear under Extender → Output in Burp.
 
@@ -393,9 +392,10 @@ Logs: All output/errors appear under Extender → Output in Burp.
 ## Roadmap
 
 - Additional payload packs and wordlist management in UI
-- More Assistant provider options and structured outputs
+- Enhanced curl command parsing with more options support
 - Enhanced reporting/export formats
 - Quality-of-life improvements across panels
+- Additional curl command features (file uploads, cookies, etc.)
 
 Track progress and suggest features in [GitHub Issues](https://github.com/joelindra/Hefaistos/issues) and [Discussions](https://github.com/joelindra/Hefaistos/discussions).
 
