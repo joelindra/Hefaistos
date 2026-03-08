@@ -25,12 +25,12 @@ Whether you're a seasoned pentester or a bug bounty hunter, Hefaistos streamline
 
 The **Forge Update** brings massive improvements across the entire suite:
 
-- **🤖 Assistant Module (PRO)**: Integrated AI security analysis with Gemini Pro, custom prompt templates, and bulk request processing.
+- **🎯 TM (Target Manager)**: Modern 3-column reporting tool with integrated CVSS v3.1 calculator, vulnerability details editor, and live report preview.
 - **🎯 Multi-Target Forge**: Run parallel fuzzing campaigns across different targets simultaneously with color-coded tracking.
 - **⚡ Hammer Editor**: Real-time JWT header/payload editor with instant signature regeneration.
 - **🐚 Tripod Interactive**: Full reverse shell handler with an interactive terminal and payload generator.
 - **📋 Anvil Collected Items**: Curated findings panel for report-ready request collection.
-- **🎨 UI Refinement**: Modernized theme-aware components, glitch aesthetic enhancements, and improved performance.
+- **🎨 UI Refinement**: Modernized theme-aware components, elevated rounded cards, and improved performance.
 
 ---
 
@@ -45,7 +45,16 @@ A high-performance HTTP fuzzer designed for complex injection testing.
 - **RPM Throttling**: Precision control over request rates to avoid detection/WAF triggers.
 - **Grep Highlighting**: Instantly spot reflected payloads in real-time results.
 
-### 2. 🔨 Hammer — JWT Toolkit
+### 2. 🎯 TM — Target Manager & Reporting
+
+A modern workspace for documenting findings and calculating risk.
+
+- **3-Column Layout**: Effortlessly manage Vulnerability Details, CVSS Calculation, and Live Preview in one view.
+- **CVSS v3.1 Calculator**: Intelligent scoring with pill-style metric selectors and real-time severity badges.
+- **Live Report Preview**: Real-time markdown/text preview of the finished vulnerability report.
+- **One-Click Export**: Quickly copy perfectly formatted findings to your clipboard for report writing.
+
+### 3. 🔨 Hammer — JWT Toolkit
 
 The ultimate suite for JSON Web Token analysis and exploitation.
 
@@ -54,7 +63,7 @@ The ultimate suite for JSON Web Token analysis and exploitation.
 - **JKU/JWK Spoofing**: Integrated Burp Collaborator support for OOB token attacks.
 - **Security Checklists**: Comprehensive automated vulnerability scanning for JWTs.
 
-### 3. 🔭 Tripod — Listener & Payload Gen
+### 4. 🔭 Tripod — Listener & Payload Gen
 
 Your command center for Out-of-Band (OOB) testing and reverse shells.
 
@@ -63,7 +72,7 @@ Your command center for Out-of-Band (OOB) testing and reverse shells.
 - **Port Manager**: Built-in utility to scan and terminate conflicting processes on used ports.
 - **Terminal UI**: Searchable, color-coded terminal with auto-reconnection.
 
-### 4. 🔌 Curltorepeater — Speed Converter
+### 5. 🔌 Curltorepeater — Speed Converter
 
 Zero-friction conversion of browser/CLI commands.
 
@@ -71,7 +80,7 @@ Zero-friction conversion of browser/CLI commands.
 - **Proxy Automation**: Automatically routes converted requests through Burp Proxy.
 - **Full Support**: Handles headers, body data, auth flags, and custom methods.
 
-### 5. ⚒️ Anvil — Request Logger
+### 6. ⚒️ Anvil — Request Logger
 
 Intelligent capture and organization of your testing traffic.
 
