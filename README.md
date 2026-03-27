@@ -1,11 +1,11 @@
-# ⚒️ Hefaistos v5.3.6 — The Blacksmith of Burp Suite
+# ⚒️ Hefaistos v5.3.7 — The Blacksmith of Burp Suite
 
 <div align="center">
   <img width="600" alt="Hefaistos Cyberpunk Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
   <br />
   <p><i>Forging tools to hammer vulnerabilities, listen for callbacks, and automate the shadows.</i></p>
 
-  [![Version](https://img.shields.io/badge/version-5.3.4-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/joelindra/Hefaistos)
+  [![Version](https://img.shields.io/badge/version-5.3.7-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/joelindra/Hefaistos)
   [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](https://github.com/joelindra/Hefaistos/blob/main/LICENSE)
   [![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Compatible-brightgreen?style=for-the-badge&logo=burpsuite)](https://portswigger.net/burp)
   [![Java](https://img.shields.io/badge/Java-11%2B-orange?style=for-the-badge&logo=openjdk)](https://openjdk.org/)
@@ -21,16 +21,16 @@ Whether you're a seasoned pentester or a bug bounty hunter, Hefaistos streamline
 
 ---
 
-## 🚀 What's New in v5.3.4
+## 🚀 What's New in v5.3.7
 
 The **Forge Update** brings massive improvements across the entire suite:
 
+- **🎯 Forge Upgrade**: New automated attack types including **Blind XSS on Referer**, **Edit Authentication** (token fuzzing), and **Parameter Pollution (HPP)**.
+- **🏗️ Maven Migration**: Fully migrated build system for better dependency management and automated "Fat JAR" generation.
+- **🎨 UI Cleanup**: Removed redundant tab layers and optimized the attack configuration interface for a smoother workflow.
 - **🎯 TM (Target Manager)**: Modern 3-column reporting tool with integrated CVSS v3.1 calculator, vulnerability details editor, and live report preview.
-- **🎯 Multi-Target Forge**: Run parallel fuzzing campaigns across different targets simultaneously with color-coded tracking.
 - **⚡ Hammer Editor**: Real-time JWT header/payload editor with instant signature regeneration.
-- **🐚 Tripod Interactive**: Full reverse shell handler with an interactive terminal and payload generator.
-- **📋 Anvil Collected Items**: Curated findings panel for report-ready request collection.
-- **🎨 UI Refinement**: Modernized theme-aware components, elevated rounded cards, and improved performance.
+- **🐚 Tripod Interactive**: Full reverse shell handler with interactive terminal and payload generator.
 
 ---
 
@@ -41,6 +41,7 @@ The **Forge Update** brings massive improvements across the entire suite:
 A high-performance HTTP fuzzer designed for complex injection testing.
 
 - **Multi-Target Support**: Fuzz multiple requests in parallel with unique color IDs.
+- **No-Marker Attacks**: New specialized scans for **Blind XSS on Referer**, **Edit Authentication** (token manipulation), and **Parameter Pollution**.
 - **Smart Payloads**: Pre-built categories (SQLi, XSS, Path Traversal, SSRF) + Custom wordlists.
 - **RPM Throttling**: Precision control over request rates to avoid detection/WAF triggers.
 - **Grep Highlighting**: Instantly spot reflected payloads in real-time results.
@@ -102,8 +103,9 @@ Intelligent capture and organization of your testing traffic.
 ## 🔧 Installation & Requirements
 
 - **Java Version**: OpenJDK 11 or higher.
+- **Build System**: **Maven** (required for building).
 - **Burp Suite**: Community or Professional (2023.x recommended).
-- **Dependencies**: SnakeYAML (included in the fat JAR).
+- **Dependencies**: Managed by Maven (see `pom.xml`).
 
 > [!TIP]
 > Use the **Update** panel within the extension to keep Hefaistos at the cutting edge.
