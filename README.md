@@ -1,128 +1,128 @@
-# ⚒️ Hefaistos v5.3.7 — The Blacksmith of Burp Suite
+# ⚒️ **Hefaistos v5.3.8** — The Blacksmith of Burp Suite
 
 <div align="center">
-  <img width="600" alt="Hefaistos Cyberpunk Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
-  <br />
-  <p><i>Forging tools to hammer vulnerabilities, listen for callbacks, and automate the shadows.</i></p>
+  <img width="720" alt="Hefaistos Cyberpunk Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
+  <br /><br />
+  <p><i>In the neon-lit underbelly of the web, one forge stands above all.<br>
+  Forging tools to hammer vulnerabilities, listen for callbacks in the dark, and automate the shadows.</i></p>
 
-  [![Version](https://img.shields.io/badge/version-5.3.7-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/joelindra/Hefaistos)
+  [![Version](https://img.shields.io/badge/version-5.3.8-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/joelindra/Hefaistos)
   [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](https://github.com/joelindra/Hefaistos/blob/main/LICENSE)
   [![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Compatible-brightgreen?style=for-the-badge&logo=burpsuite)](https://portswigger.net/burp)
   [![Java](https://img.shields.io/badge/Java-11%2B-orange?style=for-the-badge&logo=openjdk)](https://openjdk.org/)
+
+  <br />
+  <a href="https://github.com/joelindra/Hefaistos/releases/latest"><img src="https://img.shields.io/github/downloads/joelindra/Hefaistos/total?color=ff69b4&style=for-the-badge&logo=github" alt="Downloads"></a>
 </div>
 
 ---
 
-## 🔥 Overview
+## 🔥 **Overview**
 
-**Hefaistos** is an advanced, modular suite for **Burp Suite**, meticulously engineered for modern web application security testing. Inspired by the mythical blacksmith of the gods, this extension forges a powerful arsenal of tools to automate fuzzing, manipulate JWTs, handle reverse shells, and leverage AI-powered analysis—all wrapped in a sleek, cyberpunk-inspired UI.
+**Hefaistos** is a sophisticated, modular extension for **Burp Suite** — meticulously crafted for elite web application security testing. Drawing inspiration from the mythical blacksmith of the gods, it transforms raw requests into precision weapons.
 
-Whether you're a seasoned pentester or a bug bounty hunter, Hefaistos streamlines your workflow and amplifies your impact.
-
----
-
-## 🚀 What's New in v5.3.7
-
-The **Forge Update** brings massive improvements across the entire suite:
-
-- **🎯 Forge Upgrade**: New automated attack types including **Blind XSS on Referer**, **Edit Authentication** (token fuzzing), and **Parameter Pollution (HPP)**.
-- **🏗️ Maven Migration**: Fully migrated build system for better dependency management and automated "Fat JAR" generation.
-- **🎨 UI Cleanup**: Removed redundant tab layers and optimized the attack configuration interface for a smoother workflow.
-- **🎯 TM (Target Manager)**: Modern 3-column reporting tool with integrated CVSS v3.1 calculator, vulnerability details editor, and live report preview.
-- **⚡ Hammer Editor**: Real-time JWT header/payload editor with instant signature regeneration.
-- **🐚 Tripod Interactive**: Full reverse shell handler with interactive terminal and payload generator.
+With a sleek cyberpunk aesthetic and professional-grade features, Hefaistos empowers pentesters and bug bounty hunters to **fuzz smarter**, **exploit deeper**, **analyze faster**, and **report cleaner**.
 
 ---
 
-## 🛠️ The Arsenal (Core Modules)
+## 🚀 **What's New in v5.3.8 — Forge Modernization**
 
-### 1. ⚔️ Forge — Advanced Fuzzer
+This update refines the core experience with production-ready polish:
 
-A high-performance HTTP fuzzer designed for complex injection testing.
-
-- **Multi-Target Support**: Fuzz multiple requests in parallel with unique color IDs.
-- **No-Marker Attacks**: New specialized scans for **Blind XSS on Referer**, **Edit Authentication** (token manipulation), and **Parameter Pollution**.
-- **Smart Payloads**: Pre-built categories (SQLi, XSS, Path Traversal, SSRF) + Custom wordlists.
-- **RPM Throttling**: Precision control over request rates to avoid detection/WAF triggers.
-- **Grep Highlighting**: Instantly spot reflected payloads in real-time results.
-
-### 2. 🎯 TM — Target Manager & Reporting
-
-A modern workspace for documenting findings and calculating risk.
-
-- **3-Column Layout**: Effortlessly manage Vulnerability Details, CVSS Calculation, and Live Preview in one view.
-- **CVSS v3.1 Calculator**: Intelligent scoring with pill-style metric selectors and real-time severity badges.
-- **Live Report Preview**: Real-time markdown/text preview of the finished vulnerability report.
-- **One-Click Export**: Quickly copy perfectly formatted findings to your clipboard for report writing.
-
-### 3. 🔨 Hammer — JWT Toolkit
-
-The ultimate suite for JSON Web Token analysis and exploitation.
-
-- **Real-time Editor**: Modify claims and headers with instant preview and signing.
-- **Automated Attacks**: Alg:None, Stripped Signature, Key Injection, and Brute-force.
-- **JKU/JWK Spoofing**: Integrated Burp Collaborator support for OOB token attacks.
-- **Security Checklists**: Comprehensive automated vulnerability scanning for JWTs.
-
-### 4. 🔭 Tripod — Listener & Payload Gen
-
-Your command center for Out-of-Band (OOB) testing and reverse shells.
-
-- **Dual Mode**: HTTP Webhook listener for callbacks + Interactive Reverse Shell handler.
-- **Payload Engine**: Multi-platform templates (Linux, Windows, Web Shells) with 8-char Correlation IDs.
-- **Port Manager**: Built-in utility to scan and terminate conflicting processes on used ports.
-- **Terminal UI**: Searchable, color-coded terminal with auto-reconnection.
-
-### 5. 🔌 Curltorepeater — Speed Converter
-
-Zero-friction conversion of browser/CLI commands.
-
-- **Smart Parsing**: Converts standard `curl` commands into full Burp requests.
-- **Proxy Automation**: Automatically routes converted requests through Burp Proxy.
-- **Full Support**: Handles headers, body data, auth flags, and custom methods.
-
-### 6. ⚒️ Anvil — Request Logger
-
-Intelligent capture and organization of your testing traffic.
-
-- **Auto-Capture**: Passive logging from Proxy, Repeater, Intruder, and Scanner.
-- **Curated Lists**: Select interesting requests to build a report-ready collection.
-- **Manual Input**: Paste raw requests for quick parsing and analysis.
+- **✨ Native HTTP Viewers** — All fuzzer results now use Burp Suite’s powerful `IMessageEditor`: full syntax highlighting, proper formatting, and the complete right-click context menu (Send to Repeater, Intruder, Scanner, etc.).
+- **🔄 Synchronized Dual Tabs** — Elegant side-by-side comparison: **Original vs. Modified Request** and **Original vs. Modified Response**.
+- **⚡ Optimized Attack Logic** — Streamlined Parameter Pollution and Host Header Injection modules for faster, cleaner, and more focused scans.
+- **🛠️ UI & Stability Enhancements** — Improved layout consistency, better baseline response handling, and overall visual refinement.
 
 ---
 
-## ⚡ Quick Start
+## 🛠️ **The Arsenal**
 
-1. **Install**: Download the latest `.jar` from [Releases](https://github.com/joelindra/Hefaistos/releases) and load it into Burp Suite.
-2. **Configure**: Go to the **Update** or **About** panel to check your version and settings.
-3. **Analyze**: Right-click any request → **Send to Hefaistos** → Choose your tool.
-4. **Automate**: For AI features, get a Gemini API key and add it in the **Assistant → Settings** tab.
+### 1. ⚔️ **Forge** — Advanced HTTP Fuzzer
+A high-velocity, precision fuzzer built for complex injection campaigns.
+
+- Multi-target parallel fuzzing with unique color-coded sessions
+- No-marker attack suites: **Blind XSS (Referer)**, **Authentication Token Manipulation**, **Parameter Pollution**
+- Rich payload library (SQLi, XSS, Path Traversal, SSRF) + custom wordlists
+- RPM throttling & smart delay controls to evade WAFs
+- Real-time grep highlighting for instant payload reflection detection
+
+### 2. 🎯 **TM** — Target Manager & Intelligent Reporting
+Your all-in-one vulnerability documentation workspace.
+
+- Modern **3-column layout**: Details • CVSS v3.1 Calculator • Live Preview
+- Interactive CVSS scoring with pill-style selectors and real-time severity badges
+- Markdown-powered live report preview
+- One-click export of perfectly formatted findings
+
+### 3. 🔨 **Hammer** — Ultimate JWT Toolkit
+The most comprehensive JWT analysis and exploitation suite.
+
+- Real-time visual editor for headers, claims, and signature
+- Automated attacks: **Alg:None**, **Stripped Signature**, **Key Injection**, **Brute-force**
+- Advanced **JKU/JWK Spoofing** with native Burp Collaborator integration
+- Automated security checklist scanning
+
+### 4. 🔭 **Tripod** — OOB Listener & Payload Forge
+Command center for out-of-band testing and interactive shells.
+
+- **Dual-mode listener**: HTTP webhook + full interactive reverse shell handler
+- Multi-platform payload generator (Linux, Windows, Web Shells) with unique 8-char correlation IDs
+- Built-in port conflict scanner and killer
+- Searchable, color-coded terminal with auto-reconnect
+
+### 5. 🔌 **Curltorepeater** — Instant Command Converter
+Zero-friction bridge from CLI/browser to Burp.
+
+- Intelligent parsing of `curl` commands into complete Burp requests
+- Automatic proxy routing
+- Full support for custom methods, headers, auth, and body data
+
+### 6. ⚒️ **Anvil** — Intelligent Request Logger
+Smart traffic capture and curation engine.
+
+- Passive auto-capture from Proxy, Repeater, Intruder, and Scanner
+- Curated collections for report-ready request sets
+- Manual raw request pasting with robust parsing
 
 ---
 
-## 🔧 Installation & Requirements
+## ⚡ **Quick Start**
 
-- **Java Version**: OpenJDK 11 or higher.
-- **Build System**: **Maven** (required for building).
-- **Burp Suite**: Community or Professional (2023.x recommended).
-- **Dependencies**: Managed by Maven (see `pom.xml`).
+1. **Download** the latest `.jar` from [Releases](https://github.com/joelindra/Hefaistos/releases)
+2. **Load** into Burp Suite (Extender → Add → Select JAR)
+3. **Right-click** any request → **Send to Hefaistos** → Choose your weapon
+4. **AI Features** (optional): Add your Gemini API key in **Assistant → Settings**
 
 > [!TIP]
-> Use the **Update** panel within the extension to keep Hefaistos at the cutting edge.
+> Use the built-in **Update** tab to stay on the bleeding edge.
 
 ---
 
-## 📄 License & Credits
+## 🔧 **Requirements**
 
-Licensed under the **MIT License**. Created with 🔥 by [Joel Indra](https://github.com/joelindra).
-
-**Support the forge:**
-
-- 🐛 [Report a Bug](https://github.com/joelindra/Hefaistos/issues)
-- 💡 [Suggest a Feature](https://github.com/joelindra/Hefaistos/discussions)
+- **Java**: OpenJDK 11 or higher
+- **Burp Suite**: Community or Professional (2023.4+ recommended)
+- **Build** (optional): Maven
 
 ---
+
+## 📄 **License & Credits**
+
+**MIT License** — Free to use, modify, and distribute.
+
+Forged with passion by **[Joel Indra](https://github.com/joelindra)**.
+
+---
+
+<div align="center">
+
+**Forge your path through the matrix.**  
+**⚒️ Neon never sleeps. 🔥**
+
+</div>
 
 <p align="center">
-  <i>Forge your way to better security. ⚒️🔥</i>
+  <a href="https://github.com/joelindra/Hefaistos/issues">🐛 Report Bug</a> • 
+  <a href="https://github.com/joelindra/Hefaistos/discussions">💡 Suggest Feature</a>
 </p>
