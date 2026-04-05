@@ -115,6 +115,14 @@ Forged with passion by **[Joel Indra](https://github.com/joelindra)**.
 
 ---
 
+## Preview
+
+<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/9f7c78a8-415c-4c96-862f-341a99582b9c" />
+<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/db86e66d-9f84-4abf-a565-ccc93e92b9bd" />
+<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/92a5192d-aac4-4289-8817-81d39651d787" />
+<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/dc5f6209-a322-4ea8-83f3-1a2c06eae9e1" />
+
+
 <div align="center">
 
 **Forge your path through the matrix.**  
