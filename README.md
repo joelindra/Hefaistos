@@ -47,43 +47,15 @@ A high-velocity, precision fuzzer built for complex injection campaigns.
 - RPM throttling & smart delay controls to evade WAFs
 - Real-time grep highlighting for instant payload reflection detection
 
-### 2. 🎯 **TM** — Target Manager & Intelligent Reporting
-Your all-in-one vulnerability documentation workspace.
-
-- Modern **3-column layout**: Details • CVSS v3.1 Calculator • Live Preview
-- Interactive CVSS scoring with pill-style selectors and real-time severity badges
-- Markdown-powered live report preview
-- One-click export of perfectly formatted findings
-
-### 3. 🔨 **Hammer** — Ultimate JWT Toolkit
+### 2. 🔨 **Hammer** — Ultimate JWT Toolkit
 The most comprehensive JWT analysis and exploitation suite.
 
-- Real-time visual editor for headers, claims, and signature
-- Automated attacks: **Alg:None**, **Stripped Signature**, **Key Injection**, **Brute-force**
-- Advanced **JKU/JWK Spoofing** with native Burp Collaborator integration
-- Automated security checklist scanning
-
-### 4. 🔭 **Tripod** — OOB Listener & Payload Forge
-Command center for out-of-band testing and interactive shells.
-
-- **Dual-mode listener**: HTTP webhook + full interactive reverse shell handler
-- Multi-platform payload generator (Linux, Windows, Web Shells) with unique 8-char correlation IDs
-- Built-in port conflict scanner and killer
-- Searchable, color-coded terminal with auto-reconnect
-
-### 5. 🔌 **Curltorepeater** — Instant Command Converter
+### 3. 🔌 **Curltorepeater** — Instant Command Converter
 Zero-friction bridge from CLI/browser to Burp.
 
 - Intelligent parsing of `curl` commands into complete Burp requests
 - Automatic proxy routing
 - Full support for custom methods, headers, auth, and body data
-
-### 6. ⚒️ **Anvil** — Intelligent Request Logger
-Smart traffic capture and curation engine.
-
-- Passive auto-capture from Proxy, Repeater, Intruder, and Scanner
-- Curated collections for report-ready request sets
-- Manual raw request pasting with robust parsing
 
 ---
 
