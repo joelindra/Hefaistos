@@ -1,4 +1,4 @@
-# ⚒️ **Hefaistos v5.3.8** — The Blacksmith of Burp Suite
+# ⚒️ **Hefaistos v5.3.9** — The Blacksmith of Burp Suite
 
 <div align="center">
   <img width="720" alt="Hefaistos Cyberpunk Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
@@ -6,7 +6,7 @@
   <p><i>In the neon-lit underbelly of the web, one forge stands above all.<br>
   Forging tools to hammer vulnerabilities, listen for callbacks in the dark, and automate the shadows.</i></p>
 
-  [![Version](https://img.shields.io/badge/version-5.3.8-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/joelindra/Hefaistos)
+  [![Version](https://img.shields.io/badge/version-5.3.9-blueviolet?style=for-the-badge&logoColor=white)](https://github.com/joelindra/Hefaistos)
   [![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](https://github.com/joelindra/Hefaistos/blob/main/LICENSE)
   [![Burp Suite](https://img.shields.io/badge/Burp%20Suite-Compatible-brightgreen?style=for-the-badge&logo=burpsuite)](https://portswigger.net/burp)
   [![Java](https://img.shields.io/badge/Java-11%2B-orange?style=for-the-badge&logo=openjdk)](https://openjdk.org/)
@@ -25,7 +25,7 @@ With a sleek cyberpunk aesthetic and professional-grade features, Hefaistos empo
 
 ---
 
-## 🚀 **What's New in v5.3.8 — Forge Modernization**
+## 🚀 **What's New in v5.3.9 — Forge Modernization**
 
 This update refines the core experience with production-ready polish:
 
@@ -114,14 +114,6 @@ Smart traffic capture and curation engine.
 Forged with passion by **[Joel Indra](https://github.com/joelindra)**.
 
 ---
-
-## Preview
-
-<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/9f7c78a8-415c-4c96-862f-341a99582b9c" />
-<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/db86e66d-9f84-4abf-a565-ccc93e92b9bd" />
-<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/92a5192d-aac4-4289-8817-81d39651d787" />
-<img width="900" height="800" alt="image" src="https://github.com/user-attachments/assets/dc5f6209-a322-4ea8-83f3-1a2c06eae9e1" />
-
 
 <div align="center">
 
