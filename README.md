@@ -1,4 +1,4 @@
-# ⚒️ **Hefaistos v5.4.1** — The Blacksmith of Burp Suite
+# ⚒️ **Hefaistos v5.4.2** — The Blacksmith of Burp Suite
 
 <div align="center">
   <img width="720" alt="Hefaistos Cyberpunk Overview" src="https://github.com/user-attachments/assets/4d7f49ff-5bbc-4e0a-b639-b34acd801ced" />
